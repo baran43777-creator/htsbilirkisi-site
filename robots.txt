@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://htsbilirkisi.com/sitemap.xml
