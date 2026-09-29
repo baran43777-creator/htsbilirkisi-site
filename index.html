@@ -330,7 +330,7 @@
       <a class="osbtn" id="d-mac" href="#"><span class="os">🍎</span> macOS</a>
       <a class="osbtn" id="d-linux" href="#"><span class="os">🐧</span> Linux</a>
     </div>
-    <div class="uyari">✓ İndirilen tek dosyadır; bilgisayarınıza başka program kurulmaz, Python vb. gerekmez. Tüm veriler yalnızca kendi bilgisayarınızda işlenir. <span id="mac-not"></span></div>
+    <div class="uyari">✓ İndirilen tek dosyadır; bilgisayarınıza başka program kurulmaz, Python vb. gerekmez. Tüm veriler yalnızca kendi bilgisayarınızda işlenir. <b style="color:var(--altin2)">Windows “bilgisayarınız korundu / güvenli değil” uyarısı verirse bu normaldir</b> (yeni ve imzasız yazılım) — <b>Daha fazla bilgi → Yine de çalıştır</b> deyin; program güvenlidir. <span id="mac-not"></span></div>
     <div class="uyari" style="margin-top:8px">ℹ️ İlk açılışta Windows <b>"Bilinmeyen yayımcı"</b> uyarısı verirse: <b>Ek bilgi → Yine de çalıştır</b>'a tıklayın. Bu normaldir; dosya sizin için özel derlenmiştir.</div>
   </div>
 </section>
@@ -455,6 +455,37 @@
   var _esm={windows:'d-win',mac:'d-mac',linux:'d-linux'}[cur];
   if(_esm){var _e=document.getElementById(_esm); if(_e)_e.style.display='none';}
   if(cur==='mac'){document.getElementById('mac-not').textContent='macOS: ilk açılışta dosyaya sağ tık → Aç deyin (bir defalık güvenlik onayı).';}
+</script>
+
+<!-- SmartScreen bilgilendirme modalı -->
+<div id="ssm" style="display:none;position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.65);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#152747;color:#eef2fa;max-width:480px;width:100%;border-radius:16px;padding:26px;border:1px solid rgba(228,187,82,.3);font-family:'Segoe UI',Arial,sans-serif;box-shadow:0 20px 60px rgba(0,0,0,.5)">
+    <div style="font-size:36px;text-align:center">🛡️</div>
+    <h3 style="color:#e4bb52;margin:8px 0 12px;text-align:center;font-size:20px">İndirmeden önce kısa bilgi</h3>
+    <p style="color:#c7d2e6;line-height:1.65;font-size:14.5px;margin:8px 0">Windows, yeni ve imzasız programlarda <b>“Bilgisayarınız korundu / güvenli değil”</b> uyarısı gösterebilir. Bu <b>tamamen normaldir</b> ve programımız güvenlidir.</p>
+    <p style="color:#c7d2e6;line-height:1.65;font-size:14.5px;margin:8px 0">Uyarı çıkarsa: <b>Daha fazla bilgi</b> &rarr; <b>Yine de çalıştır</b> deyin.</p>
+    <a id="ssm-go" href="#" style="display:block;text-align:center;background:#e4bb52;color:#152a55;font-weight:800;padding:13px;border-radius:10px;text-decoration:none;margin-top:16px">Anladım, İndirmeyi Başlat ⬇</a>
+    <div style="text-align:center;margin-top:10px"><a href="#" id="ssm-close" style="color:#9fb0d0;font-size:13px;text-decoration:none">Vazgeç</a></div>
+  </div>
+</div>
+<script>
+(function(){
+  var modal=document.getElementById('ssm'), go=document.getElementById('ssm-go');
+  if(!modal||!go) return;
+  function show(url){ go.href=url; modal.style.display='flex'; }
+  function hide(){ modal.style.display='none'; }
+  document.getElementById('ssm-close').addEventListener('click',function(e){e.preventDefault();hide();});
+  modal.addEventListener('click',function(e){ if(e.target===modal) hide(); });
+  go.addEventListener('click',function(){ setTimeout(hide,400); });
+  ['ana-indir','d-win','d-mac','d-linux'].forEach(function(id){
+    var b=document.getElementById(id);
+    if(b) b.addEventListener('click',function(e){
+      var url=b.getAttribute('href');
+      if(!url||url==='#') return;
+      e.preventDefault(); show(url);
+    });
+  });
+})();
 </script>
 </body>
 </html>
