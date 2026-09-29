@@ -325,10 +325,7 @@
     <div class="baslik" style="margin-top:8px">7 gün ücretsiz demo — tek dosya, kurulum yok.</div>
     <p class="alt" style="margin:0 auto">İşletim sisteminize uygun tek dosyayı indirin, çift tıklayın. Program içinden <b>tek tıkla</b> 7 günlük demoyu başlatın. Başka hiçbir program gerekmez.</p>
     <div class="oslar">
-      <a class="osbtn ana" id="ana-indir" href="#"><span class="os" id="ana-os">⬇</span> <span id="ana-ad">İndir</span></a>
-      <a class="osbtn" id="d-win" href="#"><span class="os">🪟</span> Windows</a>
-      <a class="osbtn" id="d-mac" href="#"><span class="os">🍎</span> macOS</a>
-      <a class="osbtn" id="d-linux" href="#"><span class="os">🐧</span> Linux</a>
+      <a class="osbtn ana" id="ana-indir" href="#"><span class="os" id="ana-os">🪟</span> <span id="ana-ad">Windows için İndir</span></a>
     </div>
     <div class="uyari">✓ İndirilen tek dosyadır; bilgisayarınıza başka program kurulmaz, Python vb. gerekmez. Tüm veriler yalnızca kendi bilgisayarınızda işlenir. <b style="color:var(--altin2)">Windows “bilgisayarınız korundu / güvenli değil” uyarısı verirse bu normaldir</b> (yeni ve imzasız yazılım) — <b>Daha fazla bilgi → Yine de çalıştır</b> deyin; program güvenlidir. <span id="mac-not"></span></div>
     <div class="uyari" style="margin-top:8px">ℹ️ İlk açılışta Windows <b>"Bilinmeyen yayımcı"</b> uyarısı verirse: <b>Ek bilgi → Yine de çalıştır</b>'a tıklayın. Bu normaldir; dosya sizin için özel derlenmiştir.</div>
@@ -439,22 +436,11 @@
   // ==== AYAR: İndirmeler lisans sunucusu üzerinden sayılır ve doğrudan indirilir ====
   const SUNUCU="https://bilirkisi-lisans.onrender.com";  // lisans sunucusu adresi
   const base=SUNUCU+"/indir";
-  const OS={windows:{ad:"Windows",os:"🪟",k:"windows"},
-            mac:{ad:"macOS",os:"🍎",k:"mac"},
-            linux:{ad:"Linux",os:"🐧",k:"linux"}};
-  document.getElementById('d-win').href=base+'/'+OS.windows.k;
-  document.getElementById('d-mac').href=base+'/'+OS.mac.k;
-  document.getElementById('d-linux').href=base+'/'+OS.linux.k;
-  function tespit(){const p=((navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||navigator.userAgent).toLowerCase();
-    if(p.includes('win'))return'windows'; if(p.includes('mac'))return'mac'; return'linux';}
-  const cur=tespit(), o=OS[cur];
+  // Program yalnızca Windows için dağıtılıyor; indirme her zaman Windows sürümünü verir.
   const ai=document.getElementById('ana-indir');
-  ai.href=base+'/'+o.k; document.getElementById('ana-os').textContent=o.os;
-  document.getElementById('ana-ad').textContent=o.ad+' için indir';
-  // Ana buton zaten kullanıcının işletim sistemini indiriyor; aynı OS'un ikinci butonunu gizle
-  var _esm={windows:'d-win',mac:'d-mac',linux:'d-linux'}[cur];
-  if(_esm){var _e=document.getElementById(_esm); if(_e)_e.style.display='none';}
-  if(cur==='mac'){document.getElementById('mac-not').textContent='macOS: ilk açılışta dosyaya sağ tık → Aç deyin (bir defalık güvenlik onayı).';}
+  if(ai){ ai.href=base+'/windows';
+    var _ao=document.getElementById('ana-os'); if(_ao)_ao.textContent='🪟';
+    var _aa=document.getElementById('ana-ad'); if(_aa)_aa.textContent='Windows için İndir'; }
 </script>
 
 <!-- SmartScreen bilgilendirme modalı -->
@@ -477,7 +463,7 @@
   document.getElementById('ssm-close').addEventListener('click',function(e){e.preventDefault();hide();});
   modal.addEventListener('click',function(e){ if(e.target===modal) hide(); });
   go.addEventListener('click',function(){ setTimeout(hide,400); });
-  ['ana-indir','d-win','d-mac','d-linux'].forEach(function(id){
+  ['ana-indir'].forEach(function(id){
     var b=document.getElementById(id);
     if(b) b.addEventListener('click',function(e){
       var url=b.getAttribute('href');
