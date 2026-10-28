@@ -1,7 +1,7 @@
 {
- "surum": "1.0.7",
- "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.7/BilirkisiAnalizSistemi-Windows.exe",
- "sha256": "640e889f122a782b7ad3631305cf55fd709130e620f379a19e80f3b4d927fc28",
- "notlar": "Otomatik guncelleme mekanizmasindaki sessiz hata giderildi: yeni exe kopyalanamazsa (kilitli dosya/izin) artik sessizce eski surumle devam etmiyor, hata kaydi tutuluyor ve arayuzde acikca gosteriliyor; deneme suresi 30sn'den 90sn'ye cikarildi",
- "imza": "pT1LG9QifgTqLZ1FWHVkTIvjSLVKBEai5M9evdZE3xtZVHzz0qpplYKDhvKbwNOqS2w17FAk8aJDX8L8gNlIAQ"
+ "surum": "1.0.8",
+ "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.8/BilirkisiAnalizSistemi-Windows.exe",
+ "sha256": "af0bda78d75b4de3f96c6df41cbd1bc15f22946ed3cfb98a54b20ad6b65eab79",
+ "notlar": "Guncelleme sonrasi yeniden baslatma beklemesi sabit 12sn yerine sunucu cevap verene kadar (en fazla 2dk) aktif olarak kontrol ediyor; agir .exe'nin ilk acilista uzun surmesi artik 'guncelleme olmadi' yanilgisina yol acmiyor, zaman asiminda net bir uyari gosteriliyor",
+ "imza": "F907K9cRUtiylNtLNPRFr5CfEWaiDyiyKnWfPBsw47R3OSDWDlkL1R4Z3GiV5i1JZklNx-AknmWRzufWQ9lFBQ"
 }
