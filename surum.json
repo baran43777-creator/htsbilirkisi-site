@@ -2,6 +2,6 @@
  "surum": "1.0.9",
  "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.9/BilirkisiAnalizSistemi-Windows.exe",
  "sha256": "f859b1e7572eb6923fedf6decfd5a6eb272a689c5ed221ebeac977cc6921007b",
- "notlar": "Guncelleme sirasinda eski surecin kapanmasini bekleyen dongu artik en fazla 30 sn bekliyor, surenin sonunda sureci zorla sonlandirip devam ediyor (daha once bazi durumlarda sonsuza kadar bekleyip kopyalama hic baslamiyordu).",
+ "notlar": "ONEMLI: Otomatik guncelleme bazi bilgisayarlarda calismiyor olabilir. Boyle bir durumda su adresten Onarim Aracini indirip (programin bulundugu klasore koyup) calistirin: htsbilirkisi.com/onar.bat",
  "imza": "NwqEAS3O7pcUOUQHX8GFmGTvVCsQx3ALlpeSwUZZphsfS3gftC9zPZxNt70heaZNGR9L9lLteWUbqusTSPbtAQ"
 }
