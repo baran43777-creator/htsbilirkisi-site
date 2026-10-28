@@ -1,7 +1,7 @@
 {
- "surum": "1.0.9",
- "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.9/BilirkisiAnalizSistemi-Windows.exe",
- "sha256": "f859b1e7572eb6923fedf6decfd5a6eb272a689c5ed221ebeac977cc6921007b",
- "notlar": "ONEMLI: Otomatik guncelleme bazi bilgisayarlarda calismiyor olabilir. Boyle bir durumda su adresten Onarim Aracini indirip (programin bulundugu klasore koyup) calistirin: htsbilirkisi.com/onar.bat",
- "imza": "NwqEAS3O7pcUOUQHX8GFmGTvVCsQx3ALlpeSwUZZphsfS3gftC9zPZxNt70heaZNGR9L9lLteWUbqusTSPbtAQ"
+ "surum": "1.0.10",
+ "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.10/BilirkisiAnalizSistemi-Windows.exe",
+ "sha256": "082cd74b892519b90dbb94e4de458e9343cb92cb730608104adcf400d15ed702",
+ "notlar": "Guncelleme seridi artik dogrudan onar.bat indirme bagi gosteriyor; kullanici sadece indirip cift tikliyor, programin kendi kendini calisirken kopyalamaya calistigi eski (guvenilmez) yontem kaldirildi.",
+ "imza": "1f2oqwmJJhwUOZL230YKxaG5VpiTpUvLa1ZlVnadbk9sIg4Oa06Y6mcOVk42Yn9U1JyV_Ea0-qnPEQgs8g7vAA"
 }
