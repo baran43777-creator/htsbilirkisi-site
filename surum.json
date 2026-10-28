@@ -1,7 +1,7 @@
 {
- "surum": "1.0.8",
- "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.8/BilirkisiAnalizSistemi-Windows.exe",
- "sha256": "af0bda78d75b4de3f96c6df41cbd1bc15f22946ed3cfb98a54b20ad6b65eab79",
- "notlar": "Guncelleme sonrasi yeniden baslatma beklemesi sabit 12sn yerine sunucu cevap verene kadar (en fazla 2dk) aktif olarak kontrol ediyor; agir .exe'nin ilk acilista uzun surmesi artik 'guncelleme olmadi' yanilgisina yol acmiyor, zaman asiminda net bir uyari gosteriliyor",
- "imza": "F907K9cRUtiylNtLNPRFr5CfEWaiDyiyKnWfPBsw47R3OSDWDlkL1R4Z3GiV5i1JZklNx-AknmWRzufWQ9lFBQ"
+ "surum": "1.0.9",
+ "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.9/BilirkisiAnalizSistemi-Windows.exe",
+ "sha256": "f859b1e7572eb6923fedf6decfd5a6eb272a689c5ed221ebeac977cc6921007b",
+ "notlar": "Guncelleme sirasinda eski surecin kapanmasini bekleyen dongu artik en fazla 30 sn bekliyor, surenin sonunda sureci zorla sonlandirip devam ediyor (daha once bazi durumlarda sonsuza kadar bekleyip kopyalama hic baslamiyordu).",
+ "imza": "NwqEAS3O7pcUOUQHX8GFmGTvVCsQx3ALlpeSwUZZphsfS3gftC9zPZxNt70heaZNGR9L9lLteWUbqusTSPbtAQ"
 }
