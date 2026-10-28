@@ -1,7 +1,7 @@
 {
- "surum": "1.0.6",
- "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.6/BilirkisiAnalizSistemi-Windows.exe",
- "sha256": "4b403adedb31c7ed4c8f1d3e1364f66a52e84e29fa23c9d622e2537a7ee74ab5",
- "notlar": "Harita kayma kokten cozuldu (x/y/z karo birlestirme), il isimleri haritada garantili gosteriliyor, kanaat bolumune suc tarihi baz konumlari ve koordinasyon analizi maddeleri eklendi, rapor aciklama metinleri netlestirildi",
- "imza": "isnjJsFOqd1bw5ChRrrPLAg2AV-J_AAsQACXsCVpHAgv2mFTJe76u2cD9kbnUE_8ZULtKjmnwtA_TjzApat0AA"
+ "surum": "1.0.7",
+ "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.7/BilirkisiAnalizSistemi-Windows.exe",
+ "sha256": "640e889f122a782b7ad3631305cf55fd709130e620f379a19e80f3b4d927fc28",
+ "notlar": "Otomatik guncelleme mekanizmasindaki sessiz hata giderildi: yeni exe kopyalanamazsa (kilitli dosya/izin) artik sessizce eski surumle devam etmiyor, hata kaydi tutuluyor ve arayuzde acikca gosteriliyor; deneme suresi 30sn'den 90sn'ye cikarildi",
+ "imza": "pT1LG9QifgTqLZ1FWHVkTIvjSLVKBEai5M9evdZE3xtZVHzz0qpplYKDhvKbwNOqS2w17FAk8aJDX8L8gNlIAQ"
 }
