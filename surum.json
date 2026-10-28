@@ -1,7 +1,7 @@
 {
- "surum": "1.0.11",
- "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.11/BilirkisiAnalizSistemi-Windows.exe",
- "sha256": "1256d928884cc5c7f10cd275ac4c52400f06ce9894f1e3114fcb0ffb7310a1ed",
- "notlar": "Guncelleme calismiyorsa: htsbilirkisi.com/guncelleme-sorunu.html adresine gidip oradaki butona tiklayarak onarim dosyasini indirin, cift tiklayin.",
- "imza": "czHD2z-ci8r2rt6E3YP1dj_5ob3SJ81Vs5D4_jWp6FIHjv9wCxaB9BcGsqFLMU2jvFmU2hD1e0X501TiP6owDQ"
+ "surum": "1.0.12",
+ "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.12/BilirkisiAnalizSistemi-Windows.exe",
+ "sha256": "05aac8b8b0cd18ab5e62518e3966ba91b5f5783f010d14b73e544e2007c0acdb",
+ "notlar": "Yeni surum cikti. Baglantiya tiklayip dosyayi indirin, cift tiklayip calistirin - program otomatik guncellenecektir: htsbilirkisi.com/guncelleme-sorunu.html",
+ "imza": "gxBDUdE8X6QSDoMn_o1f6yM_LiJQoDiQ71Sa63tukR9Q8LoZBNKgVXp1EbXTzg2_T4sxUWwqAZdAHHB5dpQyDg"
 }
