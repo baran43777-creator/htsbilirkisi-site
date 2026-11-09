@@ -1,7 +1,7 @@
 {
- "surum": "1.0.16",
- "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.16/BilirkisiAnalizSistemi-Windows.exe",
- "sha256": "ef763e79c479ca16ad7511b50763658c64eda080807f8d7dd632c8539e4b3788",
- "notlar": "Guncelleme dagitim hatasi duzeltildi: 1.0.15 etiketiyle yayinlanan dosya aslinda eski (1.0.14) surumdu, yeniden derlendi.",
- "imza": "D8-VdonbVR5qiU11XTbef9VCSdtXKx2D3A_F9suOaXDbAzqnssPEcRKntzRBz4pm9GWaWJMcChcm_RwNfL0ACg"
+ "surum": "1.0.17",
+ "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.17/BilirkisiAnalizSistemi-Windows.exe",
+ "sha256": "2cfc63ef4448811aa0adcf378264d5c1fd2732fee44acadeaeb9a185eaeeab35",
+ "notlar": "Panel duzeni, tanitim/egitim videosundaki tek sutunlu sol panele geri alindi (onceki 3 sutunlu/karma CSS duzeltildi).",
+ "imza": "qRi3LNhsSuAz3CHx1t3w_KqaJi0Y_zn17hPygArKTIqm_4i0eXTkj9z4Pmrutb4oL6WzQEqJntc4gob9i-kSAw"
 }
