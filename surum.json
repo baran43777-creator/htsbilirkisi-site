@@ -1,7 +1,7 @@
 {
- "surum": "1.0.14",
- "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.14/BilirkisiAnalizSistemi-Windows.exe",
- "sha256": "a9e96acd3ba4d618075b2e3d58f2ec032b3ca84ff007b8a30962cd52334021c8",
- "notlar": "Sag alt kosedeki sabit not kaldirildi (Lisansi Yukselt butonuyla cakisiyordu); sadece sistem guncel degilken ust seritte uyari cikiyor, artik her zaman ekranda durmuyor.",
- "imza": "VKxszDQ7d5WxwoII2bpXJp3PIOtZkDYBMgMvxUPKW2OQ1A4cc6PjGLoDwwPpTZO-eckz75kkQuYSjUdVLt8EAQ"
+ "surum": "1.0.15",
+ "url": "https://github.com/baran43777-creator/bilirkisi-indirme/releases/download/v1.0.15/BilirkisiAnalizSistemi-Windows.exe",
+ "sha256": "40edc4eb41ce0f1b64cc41fed017774d3aeb52a36ccf554e6651ebcc208de9ad",
+ "notlar": "Arayuz iyilestirmeleri: panel duzeni tek sayfaya sigacak sekilde guncellendi.",
+ "imza": "30RNJp1nQHvNcqaJut9RCvgORgKExo4ypdCL3p429VPgMx6DiGL2qVWYPBzmCtrc7YWBPEJtDfPgCZkPqxbDCw"
 }
