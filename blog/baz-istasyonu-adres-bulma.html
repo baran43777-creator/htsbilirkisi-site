@@ -8,6 +8,11 @@
 <meta property="og:title" content="Baz İstasyonu Koordinatından Adres Bulma — Konum Tespiti Rehberi"><meta property="og:description" content="Baz istasyonu koordinatından açık adres nasıl bulunur? HTS kayıtlarında konum tespiti, ters geocoding, harita eşleştirme ve belirsizlik payı.">
 <meta property="og:url" content="https://htsbilirkisi.com/blog/baz-istasyonu-adres-bulma">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Baz İstasyonu Koordinatından Adres Bulma — Konum Tespiti Rehberi", "description": "Baz istasyonu koordinatından açık adres nasıl bulunur? HTS kayıtlarında konum tespiti, ters geocoding, harita eşleştirme ve belirsizlik payı.", "inLanguage": "tr-TR", "datePublished": "2026-10-15", "dateModified": "2026-11-11", "mainEntityOfPage": "https://htsbilirkisi.com/blog/baz-istasyonu-adres-bulma", "author": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi"}, "publisher": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi", "url": "https://htsbilirkisi.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Baz istasyonu koordinatından tam adres bulunabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Koordinat, ters geocoding ile il/ilçe/mahalle/cadde düzeyinde bir adrese çevrilebilir; ancak bu, baz istasyonunun kendi konumunun adresidir, kişinin tam olarak bulunduğu noktanın adresi değildir."}},
+{"@type":"Question","name":"Ters geocoding nedir?","acceptedAnswer":{"@type":"Answer","text":"Ters geocoding, bir enlem-boylam koordinatını okunabilir bir açık adrese çeviren işlemdir; normal geocoding'in (adresten koordinat bulma) tersi yönde çalışır."}},
+{"@type":"Question","name":"Binlerce baz istasyonu koordinatı elle mi adrese çevrilir?","acceptedAnswer":{"@type":"Answer","text":"Elle yapılabilir ama büyük veri setlerinde günler sürer ve hataya açıktır. HTS analiz yazılımları bu dönüşümü toplu ve otomatik şekilde yapar."}}
+]}</script>
 <style>
 :root{--laci:#152a55;--laci2:#0e1f42;--laci3:#0a1730;--altin:#e4bb52;--altin2:#f2d383;--ak:#eef2fa;--gri:#9fb0d0;--gri2:#c7d2e6;--yesil:#2fbf71;--kart:#152747}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,9 +30,15 @@ p{margin:12px 0;color:var(--gri2)}
 ul,ol{margin:12px 0 12px 22px;color:var(--gri2)}li{margin:6px 0}
 .tarih{color:var(--gri);font-size:13px;margin-bottom:20px}
 .cta{background:linear-gradient(135deg,var(--laci),#204273);border:1px solid rgba(228,187,82,.25);border-radius:16px;padding:26px;margin:34px 0;text-align:center}
-.cta h3{font-size:20px;margin-bottom:8px}
+.cta h3{color:var(--ak);font-size:20px;margin-bottom:8px}
 .btn{display:inline-block;background:var(--altin);color:var(--laci2);font-weight:800;padding:12px 22px;border-radius:10px;margin-top:12px}
 .btn:hover{text-decoration:none;background:var(--altin2)}
+.sss dt{font-weight:700;color:var(--ak);margin-top:14px}
+.sss dd{margin:4px 0 0 0;color:var(--gri2)}
+.uyari{background:var(--kart);border:1px solid rgba(228,187,82,.2);border-radius:12px;padding:16px 18px;margin:18px 0}
+.yazar{display:flex;gap:14px;align-items:flex-start;background:var(--kart);border-radius:12px;padding:18px;margin-top:30px}
+.yazar .av{width:46px;height:46px;border-radius:50%;background:var(--altin);color:var(--laci2);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.yazar b{color:var(--ak)}
 .ilgili{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px}
 .ilgili a{display:block;padding:6px 0}
 footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:var(--gri);font-size:13px;text-align:center;padding:26px 20px}
@@ -43,28 +54,51 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 <div class="wrap">
 <div class="kirinti"><a href="https://htsbilirkisi.com/">Ana Sayfa</a> › <a href="https://htsbilirkisi.com/blog/">Blog</a> › Baz İstasyonu Koordinatından Adres Bulma</div>
 <h1>Baz İstasyonu Koordinatından Adres Bulma — Konum Tespiti Rehberi</h1>
-<div class="tarih">Güncelleme: 2026-10-15 · HTS Bilirkişi Analiz Sistemi</div>
+<div class="tarih">Güncelleme: 2026-11-11 · HTS Bilirkişi Analiz Sistemi</div>
 
-<p>HTS kayıtlarındaki en değerli bilgilerden biri, hattın bağlandığı <b>baz istasyonunun konumudur</b>. Ancak operatör dökümünde konum çoğu zaman açık adres olarak değil, <b>enlem-boylam koordinatı</b> (ya da hücre/baz kodu) olarak gelir. Bu yazıda, baz istasyonu koordinatından açık adresin nasıl bulunduğunu, bunun sınırlarını ve bir <b>HTS analiz programı</b> ile nasıl otomatikleştirildiğini anlatıyoruz.</p>
+<p>HTS kayıtlarındaki en değerli bilgilerden biri, hattın bağlandığı <b>baz istasyonunun konumudur</b>. Ancak operatör dökümünde konum çoğu zaman açık adres olarak değil, <b>enlem-boylam koordinatı</b> (ya da hücre/baz kodu) olarak gelir. Bu yazıda, baz istasyonu koordinatından açık adresin nasıl bulunduğunu, bunun teknik sınırlarını ve bir <b>HTS analiz programı</b> ile nasıl otomatikleştirildiğini ayrıntılı biçimde anlatıyoruz.</p>
 
 <h2>Baz istasyonu koordinatı nedir?</h2>
-<p>Her baz istasyonunun coğrafi bir konumu vardır ve bu konum genellikle <b>enlem (latitude)</b> ve <b>boylam (longitude)</b> değerleriyle ifade edilir (örneğin 37.8821, 41.1351). HTS dökümünde her çağrı veya SMS satırının yanında, o an bağlanılan baz istasyonunun koordinatı yer alır. Bu değer, hattın o saatte yaklaşık olarak hangi bölgede bulunduğunu gösterir.</p>
+<p>Her baz istasyonunun coğrafi bir konumu vardır ve bu konum genellikle <b>enlem (latitude)</b> ve <b>boylam (longitude)</b> değerleriyle ifade edilir (örneğin 37.8821, 41.1351). HTS dökümünde her çağrı veya SMS satırının yanında, o an bağlanılan baz istasyonunun koordinatı veya hücre kodu (Cell ID) yer alır. Bu değer, hattın o saatte yaklaşık olarak hangi bölgede bulunduğunu gösterir.</p>
 
 <h2>Koordinattan açık adres nasıl bulunur? (Ters geocoding)</h2>
-<p>Enlem-boylam değerini okunabilir bir adrese (il, ilçe, mahalle, cadde) çevirme işlemine <b>ters geocoding (reverse geocoding)</b> denir. Tek bir koordinat için harita servislerine koordinatı girip adresi görebilirsiniz. Ancak HTS incelemesinde binlerce farklı baz istasyonu olabilir; her birini tek tek sorgulamak günler alır ve hataya açıktır. Doğru yaklaşım, tüm koordinatları toplu olarak adrese çevirip harita üzerinde göstermektir.</p>
+<p>Enlem-boylam değerini okunabilir bir adrese (il, ilçe, mahalle, cadde) çevirme işlemine <b>ters geocoding (reverse geocoding)</b> denir. Tek bir koordinat için harita servislerine koordinatı girip adresi görebilirsiniz. Ancak HTS incelemesinde binlerce farklı baz istasyonu kaydı olabilir; her birini tek tek sorgulamak günler alır ve hataya açıktır. Doğru yaklaşım, tüm koordinatları toplu (batch) olarak adrese çevirip harita üzerinde göstermektir.</p>
+
+<h2>Hücre kodundan koordinata geçiş</h2>
+<p>Bazı operatör dökümlerinde doğrudan koordinat değil, yalnızca Cell ID ve LAC/TAC kodu yer alır. Bu durumda önce kodun hangi fiziksel baz istasyonuna karşılık geldiğinin bulunması gerekir; bu eşleştirme, operatörlerin BTS envanter listeleri veya BTK üzerinden temin edilen istasyon verileriyle yapılır. Kod → koordinat → açık adres şeklindeki bu iki aşamalı dönüşüm, elle yapıldığında özellikle hataya açık bir adımdır.</p>
 
 <h2>Konum tespitinin belirsizlik payı</h2>
-<p>Önemli bir uyarı: baz istasyonu konumu, <b>kişinin kesin konumu değildir</b>. Bir baz istasyonu, kırsal alanda kilometrelerce, şehir merkezinde ise birkaç yüz metrelik bir kapsama alanına hizmet verir. Yani "hat bu baz istasyonuna bağlıydı" ifadesi, kişinin o istasyonun kapsama alanı içinde bir yerde olduğunu gösterir; tam adresinde olduğunu değil. Bilirkişi raporlarında bu <b>belirsizlik payının</b> açıkça belirtilmesi, raporun doğruluğu ve kabul edilebilirliği açısından kritiktir.</p>
+<div class="uyari"><p style="margin:0">Önemli bir uyarı: baz istasyonu konumu, <b>kişinin kesin konumu değildir</b>. Bir baz istasyonu, kırsal alanda kilometrelerce, şehir merkezinde ise birkaç yüz metrelik bir kapsama alanına hizmet verir. Yani "hat bu baz istasyonuna bağlıydı" ifadesi, kişinin o istasyonun kapsama alanı içinde bir yerde olduğunu gösterir; tam adresinde olduğunu değil. Bilirkişi raporlarında bu <b>belirsizlik payının</b> kilometre cinsinden yaklaşık büyüklüğüyle birlikte açıkça belirtilmesi, raporun doğruluğu ve kabul edilebilirliği açısından kritiktir.</p></div>
 
 <h2>Hareket ve kapsama analizi</h2>
-<p>Tek bir konumdan daha anlamlı olan, hattın <b>zaman içindeki hareketidir</b>. Ardışık kayıtlardaki baz istasyonlarını sırayla haritada işaretleyerek bir kişinin gün içindeki hareket izini, hangi bölgelerde bulunduğunu ve belirli bir saatte nerede olduğunu değerlendirebilirsiniz. Aynı şekilde, iki farklı hattın aynı anda aynı baz istasyonuna bağlanması, o kişilerin aynı bölgede bulunmuş olabileceğine işaret eder.</p>
+<p>Tek bir konumdan daha anlamlı olan, hattın <b>zaman içindeki hareketidir</b>. Ardışık kayıtlardaki baz istasyonlarını sırayla haritada işaretleyerek bir kişinin gün içindeki hareket izini, hangi bölgelerde bulunduğunu ve belirli bir saatte nerede olduğunu değerlendirebilirsiniz. Aynı şekilde, iki farklı hattın aynı anda aynı baz istasyonuna bağlanması, o kişilerin aynı bölgede bulunmuş olabileceğine işaret eder — ancak bu çıkarımın kendine özgü riskleri için <a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi">aynı baz istasyonu çakışması</a> yazımıza bakmanızı öneririz.</p>
+
+<h2>Harita görselleştirmesinde nelere dikkat edilmeli?</h2>
+<ul>
+<li>Haritada her noktanın yanına tarih/saat etiketi eklenmesi, kronolojiyi takip etmeyi kolaylaştırır.</li>
+<li>Kapsama alanının yaklaşık yarıçapının haritada bir daire/alan olarak gösterilmesi, belirsizliği görsel olarak somutlaştırır.</li>
+<li>Çok sayıda nokta varsa yoğunluk haritası (heatmap) kullanmak, sık bulunulan bölgeleri öne çıkarır.</li>
+</ul>
 
 <h2>Programla otomatik adres eşleştirme</h2>
 <p>Bu işlemlerin tamamı elle yapıldığında çok zahmetlidir. <a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a>, HTS dökümündeki tüm baz istasyonu koordinatlarını otomatik olarak açık adrese çevirir, harita üzerinde işaretler, hareket izlerini ve kapsama alanlarını görselleştirir. Program tümüyle <b>çevrimdışı</b> çalışır; dosyalarınız ve koordinatlarınız bilgisayarınızdan dışarı çıkmaz, böylece KVKK ve gizlilik korunur.</p>
 
+<h2>Sık Sorulan Sorular</h2>
+<dl class="sss">
+<dt>Baz istasyonu koordinatından tam adres bulunabilir mi?</dt>
+<dd>Koordinat ters geocoding ile il/ilçe/mahalle/cadde düzeyinde adrese çevrilebilir; ancak bu, baz istasyonunun kendi konumunun adresidir, kişinin bulunduğu tam noktanın adresi değildir.</dd>
+<dt>Ters geocoding nedir?</dt>
+<dd>Bir enlem-boylam koordinatını okunabilir bir açık adrese çeviren işlemdir; geocoding'in (adresten koordinat bulma) tersi yönde çalışır.</dd>
+<dt>Binlerce baz istasyonu koordinatı elle mi adrese çevrilir?</dt>
+<dd>Elle yapılabilir ama büyük veri setlerinde günler sürer ve hataya açıktır; HTS analiz yazılımları bu dönüşümü toplu ve otomatik şekilde yapar.</dd>
+</dl>
+
 <div class="cta"><h3>Baz istasyonu konumlarını otomatik haritalandırın</h3>
 <p>HTS kayıtlarını içe aktarın; tüm baz istasyonlarını adrese çevirin, harita ve hareket analizini otomatik çıkarın, mahkemeye hazır rapor alın.</p>
 <a class="btn" href="https://htsbilirkisi.com/#indir">7 Gün Ücretsiz Deneyin →</a></div>
+
+<div class="yazar"><div class="av">⚖️</div><div><b>Ozan Baran Yalçın</b> — Adli bilişim bilirkişisi. HTS/iletişim kayıtları, baz istasyonu, konum ve korelasyon analizleri üzerine çalışır; bu yazı dizisi sahadaki bilirkişilik tecrübesine dayanır.</div></div>
+
 <div class="ilgili"><h2>İlgili yazılar</h2><a href="https://htsbilirkisi.com/blog/baz-istasyonu-sorgulama">→ Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?</a><a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi">→ Aynı Baz İstasyonu Çakışması Nedir?</a><a href="https://htsbilirkisi.com/blog/hts-kaydi-nedir">→ HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?</a><a href="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi">→ IMEI ile Cihaz Değişikliği Nasıl Tespit Edilir?</a></div>
 </div>
 <footer>© 2026 HTS Bilirkişi Analiz Sistemi · <a href="https://htsbilirkisi.com/">htsbilirkisi.com</a> · Adli bilişim / HTS analiz ve raporlama programı</footer></body></html>

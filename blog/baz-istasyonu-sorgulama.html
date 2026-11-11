@@ -8,6 +8,12 @@
 <meta property="og:title" content="Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?"><meta property="og:description" content="HTS kayıtlarında baz istasyonu sorgulaması ve konum analizi nasıl yapılır? Harita eşleştirme, hareket analizi ve belirsizlik payı hakkında rehber.">
 <meta property="og:url" content="https://htsbilirkisi.com/blog/baz-istasyonu-sorgulama">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?", "description": "HTS kayıtlarında baz istasyonu sorgulaması ve konum analizi nasıl yapılır? Harita eşleştirme, hareket analizi ve belirsizlik payı hakkında rehber.", "inLanguage": "tr-TR", "datePublished": "2026-09-29", "dateModified": "2026-11-11", "mainEntityOfPage": "https://htsbilirkisi.com/blog/baz-istasyonu-sorgulama", "author": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi"}, "publisher": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi", "url": "https://htsbilirkisi.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Baz istasyonu konumu ile telefonun gerçek konumu aynı mıdır?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Baz istasyonu konumu, telefonun o istasyonun kapsama alanı içinde bir yerde bulunduğunu gösterir; GPS gibi tam nokta konum vermez. Kapsama alanı şehir merkezinde birkaç yüz metre, kırsalda birkaç kilometre olabilir."}},
+{"@type":"Question","name":"Bir baz istasyonuna aynı anda kaç kişi bağlı olabilir?","acceptedAnswer":{"@type":"Answer","text":"Bir baz istasyonuna, kapsama alanı içindeki tüm aktif hatlar bağlanabilir; bu sayı yoğun bölgelerde binlerce olabilir. Bu nedenle tek başına 'aynı baza bağlı olmak' iki kişinin birlikte olduğu anlamına gelmez."}},
+{"@type":"Question","name":"Baz istasyonu koordinatı nereden bulunur?","acceptedAnswer":{"@type":"Answer","text":"HTS dökümündeki hücre (Cell ID) ve LAC/TAC kodları, operatörlerin BTS envanter verileriyle eşleştirilerek koordinata çevrilir; bu eşleştirme HTS analiz yazılımları veya BTK üzerinden temin edilen istasyon listeleriyle yapılır."}},
+{"@type":"Question","name":"Konum analizi raporu mahkemede nasıl sunulur?","acceptedAnswer":{"@type":"Answer","text":"Harita üzerinde işaretlenmiş baz istasyonu noktaları, zaman çizelgesiyle birlikte Excel/PDF/Word formatında, belirsizlik payı açıkça belirtilerek bilirkişi raporuna eklenir."}}
+]}</script>
 <style>
 :root{--laci:#152a55;--laci2:#0e1f42;--laci3:#0a1730;--altin:#e4bb52;--altin2:#f2d383;--ak:#eef2fa;--gri:#9fb0d0;--gri2:#c7d2e6;--yesil:#2fbf71;--kart:#152747}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,9 +31,15 @@ p{margin:12px 0;color:var(--gri2)}
 ul,ol{margin:12px 0 12px 22px;color:var(--gri2)}li{margin:6px 0}
 .tarih{color:var(--gri);font-size:13px;margin-bottom:20px}
 .cta{background:linear-gradient(135deg,var(--laci),#204273);border:1px solid rgba(228,187,82,.25);border-radius:16px;padding:26px;margin:34px 0;text-align:center}
-.cta h3{font-size:20px;margin-bottom:8px}
+.cta h3{color:var(--ak);font-size:20px;margin-bottom:8px}
 .btn{display:inline-block;background:var(--altin);color:var(--laci2);font-weight:800;padding:12px 22px;border-radius:10px;margin-top:12px}
 .btn:hover{text-decoration:none;background:var(--altin2)}
+.sss dt{font-weight:700;color:var(--ak);margin-top:14px}
+.sss dd{margin:4px 0 0 0;color:var(--gri2)}
+.uyari{background:var(--kart);border:1px solid rgba(228,187,82,.2);border-radius:12px;padding:16px 18px;margin:18px 0}
+.yazar{display:flex;gap:14px;align-items:flex-start;background:var(--kart);border-radius:12px;padding:18px;margin-top:30px}
+.yazar .av{width:46px;height:46px;border-radius:50%;background:var(--altin);color:var(--laci2);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.yazar b{color:var(--ak)}
 .ilgili{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px}
 .ilgili a{display:block;padding:6px 0}
 footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:var(--gri);font-size:13px;text-align:center;padding:26px 20px}
@@ -43,25 +55,59 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 <div class="wrap">
 <div class="kirinti"><a href="https://htsbilirkisi.com/">Ana Sayfa</a> › <a href="https://htsbilirkisi.com/blog/">Blog</a> › Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?</div>
 <h1>Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?</h1>
-<div class="tarih">Güncelleme: 2026-09-29 · HTS Bilirkişi Analiz Sistemi</div>
+<div class="tarih">Güncelleme: 2026-11-11 · HTS Bilirkişi Analiz Sistemi</div>
 
-<p><b>Baz istasyonu sorgulaması</b>, bir GSM hattının HTS kayıtlarındaki baz istasyonu bilgilerini harita üzerinde konumlandırarak, hattın hangi bölgelerde bulunduğunu ortaya koyma işlemidir. Adli bilişimde şüphelinin veya mağdurun hareketlerini belirlemek için kritik bir yöntemdir.</p>
+<p><b>Baz istasyonu sorgulaması</b>, bir GSM hattının HTS kayıtlarındaki baz istasyonu bilgilerini harita üzerinde konumlandırarak, hattın hangi bölgelerde bulunduğunu ortaya koyma işlemidir. Adli bilişimde şüphelinin veya mağdurun hareketlerini belirlemek, bir iddiayı doğrulamak veya çürütmek için en sık başvurulan tekniklerden biridir. Bu yazıda baz istasyonu verisinin ne anlama geldiğini, konum analizinin adım adım nasıl yapıldığını ve bu analizin sınırlarını ele alıyoruz.</p>
+
 <h2>Baz istasyonu verisi neyi gösterir?</h2>
-<p>Bir telefon görüşme veya veri kullandığında, en yakın baz istasyonuna bağlanır. HTS kaydındaki baz istasyonu kimliği (Cell ID / LAC) bu istasyonun konumuna eşleştirildiğinde, hattın o anki yaklaşık bölgesi elde edilir. Bu, GPS kadar kesin değildir; kapsama alanı büyüklüğüne göre birkaç yüz metreden birkaç kilometreye kadar değişebilir.</p>
-<h2>Konum analizi nasıl yapılır?</h2>
+<p>Bir telefon görüşme yaptığında, SMS attığında veya veri kullandığında, o anda sinyali en güçlü aldığı baz istasyonuna bağlanır. HTS kaydındaki baz istasyonu kimliği (Cell ID / LAC / TAC) bu istasyonun fiziksel konumuna eşleştirildiğinde, hattın o anki yaklaşık bölgesi elde edilir. Bu, GPS kadar kesin bir nokta konum değildir; kapsama alanı büyüklüğüne göre doğruluk payı birkaç yüz metreden birkaç kilometreye kadar değişebilir.</p>
+<p>Bir baz istasyonu genellikle 3 sektöre (yaklaşık 120 derecelik açılarla) ayrılır; HTS dökümünde sektör bilgisi de yer alıyorsa, hattın istasyonun hangi yöne bakan sektöründe olduğu da belirlenebilir ve bu, konum tahminini biraz daha daraltır.</p>
+
+<h2>Konum analizi adım adım nasıl yapılır?</h2>
 <ol>
-<li>HTS dökümü içe aktarılır (Turkcell, Vodafone, Türk Telekom formatları desteklenir).</li>
-<li>Baz istasyonu kodları koordinat/adres verisine eşleştirilir.</li>
-<li>Kayıtlar harita üzerinde zaman sırasına göre görselleştirilir.</li>
-<li>Hareket vektörleri ve sık bulunulan bölgeler çıkarılır.</li>
+<li><b>İçe aktarma:</b> HTS dökümü analiz yazılımına yüklenir (Turkcell, Vodafone, Türk Telekom formatları desteklenir).</li>
+<li><b>Eşleştirme:</b> Baz istasyonu kodları (Cell ID/LAC) koordinat veya açık adres verisine eşleştirilir.</li>
+<li><b>Zaman sıralama:</b> Kayıtlar kronolojik sıraya dizilir.</li>
+<li><b>Harita görselleştirme:</b> Noktalar harita üzerinde işaretlenir, ardışık noktalar bir rota/hareket çizgisi olarak gösterilir.</li>
+<li><b>Yoğunluk analizi:</b> Hattın en sık bulunduğu bölgeler (ikametgah, işyeri gibi) istatistiksel olarak belirlenir.</li>
+<li><b>Hareket vektörü çıkarımı:</b> Belirli bir zaman aralığında hattın bir bölgeden diğerine geçişi, geçiş hızı makul olup olmadığı kontrol edilerek doğrulanır.</li>
 </ol>
-<h2>Nelere dikkat edilmeli?</h2>
-<p>Baz istasyonu konumu, hattın istasyonun kapsama alanı içinde olduğunu gösterir; tam nokta konum değildir. Yoğun şehir merkezlerinde istasyonlar sık olduğundan hassasiyet artar. Bilirkişi raporunda bu belirsizlik payı mutlaka belirtilmelidir.</p>
-<p><a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a> ile baz istasyonu haritalaması ve adres eşleştirme tek ekranda yapılır, sonuçlar mahkemeye uygun raporlara dönüştürülür.</p>
+<p>Bu adımları elle, harita servislerinde tek tek arama yaparak yapmak büyük veri setlerinde günler alabilir; bir HTS analiz yazılımı bu eşleştirme ve görselleştirmeyi otomatik yapar.</p>
+
+<h2>Belirsizlik payı neden önemlidir?</h2>
+<div class="uyari"><p style="margin:0">Baz istasyonu konumu, hattın istasyonun kapsama alanı <i>içinde bir yerde</i> olduğunu gösterir; tam nokta konum değildir. Yoğun şehir merkezlerinde istasyonlar sık yerleştirildiğinden hassasiyet artar, kırsal/kıyı bölgelerde ise kapsama alanı çok daha geniş olabilir. Bilirkişi raporunda bu belirsizlik payının kilometre cinsinden yaklaşık büyüklüğü mutlaka belirtilmelidir; aksi halde rapor, olduğundan daha kesin bir konum iddiası taşıyormuş gibi okunabilir.</p></div>
+
+<h2>Hareket analizinde dikkat edilmesi gereken tutarlılık kontrolleri</h2>
+<p>İki ardışık kayıt arasında hattın çok uzak iki baz istasyonu arasında, fiziksel olarak mümkün olmayacak kısa bir sürede "geçmiş" gibi görünmesi, veri hatasına, saat senkronizasyon sorununa veya yorum hatasına işaret edebilir. Deneyimli bir bilirkişi, böyle anomalileri tespit edip ham veriyle tekrar karşılaştırarak yanlış sonuç çıkarımını önler.</p>
+
+<h2>Konum analizi hangi dava türlerinde kullanılır?</h2>
+<ul>
+<li>Bir şüphelinin olay yerinde/yakınında olup olmadığının araştırılması.</li>
+<li>Alibi (mazeret) iddialarının doğrulanması veya çürütülmesi.</li>
+<li>Takip/stalking iddialarında hareket örüntüsünün ortaya konması.</li>
+<li>İki kişinin iddia edilen buluşma zamanlarında aynı bölgede olup olmadığının incelenmesi (bkz. <a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi">aynı baz istasyonu çakışması</a>).</li>
+</ul>
+
+<p><a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a> ile baz istasyonu haritalaması ve adres eşleştirme tek ekranda yapılır, belirsizlik payı otomatik hesaplanır ve sonuçlar mahkemeye uygun Excel/PDF/Word raporlarına dönüştürülür.</p>
+
+<h2>Sık Sorulan Sorular</h2>
+<dl class="sss">
+<dt>Baz istasyonu konumu ile telefonun gerçek konumu aynı mıdır?</dt>
+<dd>Hayır. Baz istasyonu konumu, telefonun o istasyonun kapsama alanı içinde bir yerde bulunduğunu gösterir; GPS gibi tam nokta konum vermez.</dd>
+<dt>Bir baz istasyonuna aynı anda kaç kişi bağlı olabilir?</dt>
+<dd>Kapsama alanındaki tüm aktif hatlar bağlanabilir; yoğun bölgelerde bu sayı binlerce olabilir, bu yüzden tek başına "aynı baza bağlı olmak" iki kişinin birlikte olduğu anlamına gelmez.</dd>
+<dt>Baz istasyonu koordinatı nereden bulunur?</dt>
+<dd>HTS dökümündeki hücre ve LAC/TAC kodları, operatör BTS envanter verileriyle eşleştirilerek koordinata çevrilir.</dd>
+<dt>Konum analizi raporu mahkemede nasıl sunulur?</dt>
+<dd>Harita üzerinde işaretlenmiş noktalar, zaman çizelgesiyle birlikte belirsizlik payı açıkça belirtilerek Excel/PDF/Word formatında rapora eklenir.</dd>
+</dl>
 
 <div class="cta"><h3>HTS analizini dakikalar içinde yapın</h3>
 <p>HTS/BTK kayıtlarını içe aktarın, baz istasyonu ve korelasyon analizini otomatik çıkarın, mahkemeye hazır Excel/PDF/Word rapor alın.</p>
 <a class="btn" href="https://htsbilirkisi.com/#indir">7 Gün Ücretsiz Deneyin →</a></div>
+
+<div class="yazar"><div class="av">⚖️</div><div><b>Ozan Baran Yalçın</b> — Adli bilişim bilirkişisi. HTS/iletişim kayıtları, baz istasyonu, konum ve korelasyon analizleri üzerine çalışır; bu yazı dizisi sahadaki bilirkişilik tecrübesine dayanır.</div></div>
+
 <div class="ilgili"><h2>İlgili yazılar</h2><a href="https://htsbilirkisi.com/blog/hts-kaydi-nedir">→ HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?</a><a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir">→ CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları</a><a href="https://htsbilirkisi.com/blog/uyap-hts-raporu">→ UYAP'a Uygun HTS Bilirkişi Raporu Nasıl Hazırlanır?</a><a href="https://htsbilirkisi.com/blog/baz-istasyonu-adres-bulma">→ Baz İstasyonu Koordinatından Adres Bulma — Konum Tespiti Rehberi</a></div>
 </div>
 <footer>© 2026 HTS Bilirkişi Analiz Sistemi · <a href="https://htsbilirkisi.com/">htsbilirkisi.com</a> · Adli bilişim / HTS analiz ve raporlama programı</footer></body></html>

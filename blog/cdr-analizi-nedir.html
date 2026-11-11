@@ -8,6 +8,11 @@
 <meta property="og:title" content="CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları"><meta property="og:description" content="CDR (Call Detail Record) analizi nedir, HTS ile farkı nedir? İletişim tespiti, korelasyon ve IMEI analizinde CDR kullanımı.">
 <meta property="og:url" content="https://htsbilirkisi.com/blog/cdr-analizi-nedir">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları", "description": "CDR (Call Detail Record) analizi nedir, HTS ile farkı nedir? İletişim tespiti, korelasyon ve IMEI analizinde CDR kullanımı.", "inLanguage": "tr-TR", "datePublished": "2026-09-29", "dateModified": "2026-11-11", "mainEntityOfPage": "https://htsbilirkisi.com/blog/cdr-analizi-nedir", "author": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi"}, "publisher": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi", "url": "https://htsbilirkisi.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"CDR ile HTS arasında teknik olarak fark var mı?","acceptedAnswer":{"@type":"Answer","text":"İçerik olarak büyük ölçüde örtüşürler; ikisi de arayan/aranan numara, tarih-saat, süre, IMEI ve baz istasyonu bilgisini taşır. Fark çoğunlukla terminolojiktir: CDR uluslararası/teknik terim, HTS Türkiye'deki adli süreçte kullanılan yerel karşılıktır."}},
+{"@type":"Question","name":"CDR analizi hangi suç tiplerinde kullanılır?","acceptedAnswer":{"@type":"Answer","text":"Dolandırıcılık, tehdit, hırsızlık, kasten yaralama/öldürme, uyuşturucu ve organize suç soruşturmaları başta olmak üzere iletişim ve konum bağlantısının önem taşıdığı hemen her dosyada kullanılır."}},
+{"@type":"Question","name":"CDR verisi her zaman aynı formatta mı gelir?","acceptedAnswer":{"@type":"Answer","text":"Hayır, operatöre göre sütun adları, tarih biçimi ve bazı alanların varlığı değişir. Bu yüzden farklı operatör dökümlerini karşılaştırmadan önce normalize etmek gerekir."}}
+]}</script>
 <style>
 :root{--laci:#152a55;--laci2:#0e1f42;--laci3:#0a1730;--altin:#e4bb52;--altin2:#f2d383;--ak:#eef2fa;--gri:#9fb0d0;--gri2:#c7d2e6;--yesil:#2fbf71;--kart:#152747}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,9 +30,18 @@ p{margin:12px 0;color:var(--gri2)}
 ul,ol{margin:12px 0 12px 22px;color:var(--gri2)}li{margin:6px 0}
 .tarih{color:var(--gri);font-size:13px;margin-bottom:20px}
 .cta{background:linear-gradient(135deg,var(--laci),#204273);border:1px solid rgba(228,187,82,.25);border-radius:16px;padding:26px;margin:34px 0;text-align:center}
-.cta h3{font-size:20px;margin-bottom:8px}
+.cta h3{color:var(--ak);font-size:20px;margin-bottom:8px}
 .btn{display:inline-block;background:var(--altin);color:var(--laci2);font-weight:800;padding:12px 22px;border-radius:10px;margin-top:12px}
 .btn:hover{text-decoration:none;background:var(--altin2)}
+.sss dt{font-weight:700;color:var(--ak);margin-top:14px}
+.sss dd{margin:4px 0 0 0;color:var(--gri2)}
+.uyari{background:var(--kart);border:1px solid rgba(228,187,82,.2);border-radius:12px;padding:16px 18px;margin:18px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+th,td{border:1px solid rgba(255,255,255,.12);padding:8px 10px;text-align:left;color:var(--gri2)}
+th{color:var(--altin2)}
+.yazar{display:flex;gap:14px;align-items:flex-start;background:var(--kart);border-radius:12px;padding:18px;margin-top:30px}
+.yazar .av{width:46px;height:46px;border-radius:50%;background:var(--altin);color:var(--laci2);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.yazar b{color:var(--ak)}
 .ilgili{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px}
 .ilgili a{display:block;padding:6px 0}
 footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:var(--gri);font-size:13px;text-align:center;padding:26px 20px}
@@ -43,25 +57,61 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 <div class="wrap">
 <div class="kirinti"><a href="https://htsbilirkisi.com/">Ana Sayfa</a> › <a href="https://htsbilirkisi.com/blog/">Blog</a> › CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları</div>
 <h1>CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları</h1>
-<div class="tarih">Güncelleme: 2026-09-29 · HTS Bilirkişi Analiz Sistemi</div>
+<div class="tarih">Güncelleme: 2026-11-11 · HTS Bilirkişi Analiz Sistemi</div>
 
-<p><b>CDR (Call Detail Record)</b>, telefon çağrılarına ve iletişim olaylarına ait ayrıntılı kayıtlardır. Türkiye'de adli süreçlerde çoğunlukla <b>HTS</b> adıyla anılan bu kayıtlar, iletişim tespiti ve bilirkişi incelemelerinin temel verisidir.</p>
+<p><b>CDR (Call Detail Record)</b>, telefon çağrılarına ve iletişim olaylarına ait ayrıntılı kayıtlardır. Türkiye'de adli süreçlerde çoğunlukla <b>HTS</b> adıyla anılan bu kayıtlar, iletişim tespiti ve bilirkişi incelemelerinin temel verisidir. Bu yazıda CDR kavramının ne olduğunu, HTS ile ilişkisini, hangi alanları içerdiğini ve adli bilişimde nasıl analiz edildiğini anlatıyoruz.</p>
+
 <h2>CDR ile HTS aynı şey mi?</h2>
-<p>Büyük ölçüde evet. CDR uluslararası kullanılan teknik terimdir; HTS ise operatör/BTK dökümlerinde karşımıza çıkan yerel karşılığıdır. Her ikisi de arayan/aranan, süre, tarih-saat, IMEI ve baz istasyonu gibi alanları içerir.</p>
+<p>Büyük ölçüde evet. CDR, dünya genelinde telekomünikasyon ve adli bilişim literatüründe kullanılan teknik terimdir; HTS ise Türkiye'deki operatör/BTK dökümlerinde karşımıza çıkan yerel karşılığıdır. Her ikisi de arayan/aranan numara, süre, tarih-saat, IMEI ve baz istasyonu gibi alanları içerir. Pratikte bir Türk mahkemesine sunulan dosyada "HTS kaydı" ifadesi geçerken, uluslararası bir vaka incelemesinde veya akademik kaynakta aynı veri "CDR" olarak adlandırılabilir.</p>
+
+<table><tr><th>Özellik</th><th>HTS (TR)</th><th>CDR (uluslararası)</th></tr>
+<tr><td>Kullanıldığı bağlam</td><td>Türk adli/idari süreç</td><td>Küresel telekom/adli bilişim</td></tr>
+<tr><td>Temin yolu</td><td>Mahkeme/savcılık → operatör/BTK</td><td>Operatöre, ülkeye göre değişir</td></tr>
+<tr><td>İçerik</td><td>Arayan/aranan, süre, IMEI, baz ist.</td><td>Benzer alanlar + bazen roaming/VoLTE detayı</td></tr>
+</table>
+
+<h2>CDR/HTS kaydında hangi alanlar bulunur?</h2>
+<ul>
+<li>Arayan ve aranan numara</li>
+<li>Çağrı başlangıç/bitiş zamanı ve süresi</li>
+<li>Çağrı tipi (ses, SMS, veri)</li>
+<li>IMEI ve bazı durumlarda IMSI bilgisi</li>
+<li>Bağlanılan baz istasyonu / hücre kimliği</li>
+<li>Bazı operatörlerde yönlendirme, çağrı aktarma gibi ek olay kodları</li>
+</ul>
+
 <h2>CDR analizinde neler incelenir?</h2>
 <ul>
-<li>İletişim yoğunluğu ve zaman içindeki değişimi</li>
-<li>Numaralar arası ilişki ağı (korelasyon)</li>
-<li>Ortak irtibatlar ve ortak baz istasyonları</li>
-<li>IMEI değişiklikleri ve cihaz-hat eşleşmeleri</li>
+<li><b>İletişim yoğunluğu ve zaman içindeki değişimi:</b> Belirli bir numarayla iletişimin arttığı/azaldığı dönemlerin tespiti.</li>
+<li><b>Numaralar arası ilişki ağı (korelasyon):</b> Kimin kiminle, ne sıklıkla iletişime geçtiğinin ağ (network) grafiği olarak çıkarılması.</li>
+<li><b>Ortak irtibatlar ve ortak baz istasyonları:</b> Birden fazla şüpheli/mağdur hattının ortak bağlantı noktaları.</li>
+<li><b>IMEI değişiklikleri ve cihaz-hat eşleşmeleri:</b> Bir hattın farklı cihazlarda kullanılması veya bir cihazda farklı hatların dönüşümlü kullanılması.</li>
+<li><b>Zaman çizelgesi:</b> Olayla ilgili iletişimlerin kronolojik sırayla görselleştirilmesi.</li>
 </ul>
+
+<h2>CDR analizinde karşılaşılan teknik zorluklar</h2>
+<div class="uyari"><p style="margin:0">CDR/HTS dosyaları onlarca megabayt boyutunda, yüz binlerce satırlık Excel/CSV dökümleri olabilir. Operatörler arası sütun adlandırması, tarih formatı (gün/ay/yıl vs. yıl/ay/gün) ve saat dilimi gösterimi farklılık gösterebilir. Birden fazla hattın dökümü karşılaştırılacaksa, önce hepsinin aynı standarda normalize edilmesi gerekir; aksi halde zaman çizelgesinde kaymalar veya yanlış eşleştirmeler ortaya çıkabilir.</p></div>
+
 <h2>Neden yazılım kullanılmalı?</h2>
-<p>CDR/HTS dosyaları çok büyük olabilir; farklı operatörlerin formatları da birbirinden farklıdır. Elle yapılan analizde hata riski yüksektir. Otomatik ayrıştırma, tekilleştirme ve görselleştirme yapan bir program hem zamandan kazandırır hem de tutarlılığı artırır.</p>
-<p><a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a>, farklı operatör CDR/HTS formatlarını otomatik ayrıştırır ve delil izine bağlı raporlar üretir.</p>
+<p>Yukarıdaki zorluklar nedeniyle elle yapılan CDR/HTS analizinde hata riski yüksektir; aynı zamanda büyük veri setlerinde saatler, hatta günler sürebilir. Otomatik ayrıştırma, tekilleştirme, baz istasyonu eşleştirme ve görselleştirme yapan bir program hem zamandan kazandırır hem de sonuçların tutarlılığını ve tekrarlanabilirliğini artırır — bu da bilirkişi raporunun mahkemede kabul edilebilirliğini güçlendirir.</p>
+<p><a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a>, farklı operatör CDR/HTS formatlarını otomatik ayrıştırır, korelasyon ve baz istasyonu analizini çıkarır ve delil izine bağlı, mahkemeye hazır raporlar üretir.</p>
+
+<h2>Sık Sorulan Sorular</h2>
+<dl class="sss">
+<dt>CDR ile HTS arasında teknik olarak fark var mı?</dt>
+<dd>İçerik olarak büyük ölçüde örtüşürler; fark çoğunlukla terminolojiktir. CDR uluslararası/teknik terim, HTS ise Türkiye'deki adli süreçte kullanılan yerel karşılıktır.</dd>
+<dt>CDR analizi hangi suç tiplerinde kullanılır?</dt>
+<dd>Dolandırıcılık, tehdit, hırsızlık, kasten yaralama/öldürme, uyuşturucu ve organize suç soruşturmaları başta olmak üzere iletişim/konum bağlantısının önemli olduğu hemen her dosyada kullanılır.</dd>
+<dt>CDR verisi her zaman aynı formatta mı gelir?</dt>
+<dd>Hayır, operatöre göre sütun adları, tarih biçimi ve alan varlığı değişir; karşılaştırmadan önce normalize edilmesi gerekir.</dd>
+</dl>
 
 <div class="cta"><h3>HTS analizini dakikalar içinde yapın</h3>
 <p>HTS/BTK kayıtlarını içe aktarın, baz istasyonu ve korelasyon analizini otomatik çıkarın, mahkemeye hazır Excel/PDF/Word rapor alın.</p>
 <a class="btn" href="https://htsbilirkisi.com/#indir">7 Gün Ücretsiz Deneyin →</a></div>
+
+<div class="yazar"><div class="av">⚖️</div><div><b>Ozan Baran Yalçın</b> — Adli bilişim bilirkişisi. HTS/iletişim kayıtları, baz istasyonu, konum ve korelasyon analizleri üzerine çalışır; bu yazı dizisi sahadaki bilirkişilik tecrübesine dayanır.</div></div>
+
 <div class="ilgili"><h2>İlgili yazılar</h2><a href="https://htsbilirkisi.com/blog/hts-kaydi-nedir">→ HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?</a><a href="https://htsbilirkisi.com/blog/baz-istasyonu-sorgulama">→ Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?</a><a href="https://htsbilirkisi.com/blog/uyap-hts-raporu">→ UYAP'a Uygun HTS Bilirkişi Raporu Nasıl Hazırlanır?</a><a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi">→ Aynı Baz İstasyonu Çakışması Nedir?</a></div>
 </div>
 <footer>© 2026 HTS Bilirkişi Analiz Sistemi · <a href="https://htsbilirkisi.com/">htsbilirkisi.com</a> · Adli bilişim / HTS analiz ve raporlama programı</footer></body></html>

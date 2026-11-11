@@ -8,6 +8,12 @@
 <meta property="og:title" content="HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?"><meta property="og:description" content="HTS kaydı nedir, hangi bilgileri içerir ve nasıl analiz edilir? Baz istasyonu, IMEI, korelasyon ve bilirkişi raporu adımlarıyla HTS analizi rehberi.">
 <meta property="og:url" content="https://htsbilirkisi.com/blog/hts-kaydi-nedir">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?", "description": "HTS kaydı nedir, hangi bilgileri içerir ve nasıl analiz edilir? Baz istasyonu, IMEI, korelasyon ve bilirkişi raporu adımlarıyla HTS analizi rehberi.", "inLanguage": "tr-TR", "datePublished": "2026-09-29", "dateModified": "2026-11-11", "mainEntityOfPage": "https://htsbilirkisi.com/blog/hts-kaydi-nedir", "author": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi"}, "publisher": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi", "url": "https://htsbilirkisi.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"HTS kaydı ne kadar süreyle saklanır?","acceptedAnswer":{"@type":"Answer","text":"Operatörler, 5651 sayılı Kanun ve ilgili yönetmelikler uyarınca trafik bilgilerini belirli bir süre (uygulamada genellikle bir-iki yıl civarında, operatöre ve kayıt türüne göre değişebilir) saklamakla yükümlüdür. Kesin süre operatöre ve talep edilen kayıt türüne göre değişebileceğinden, güncel süre için mahkeme/BTK üzerinden teyit alınması önerilir."}},
+{"@type":"Question","name":"HTS kaydı ile CDR kaydı aynı şey midir?","acceptedAnswer":{"@type":"Answer","text":"Hayır. HTS, bir hattın operatör nezdindeki trafik dökümünü ifade ederken CDR (Call Detail Record) daha geniş, uluslararası kullanılan bir çağrı detay kaydı kavramıdır. Türkiye'deki adli süreçlerde genellikle HTS terimi kullanılır; aradaki farkların detayı için CDR analizi yazımıza bakabilirsiniz."}},
+{"@type":"Question","name":"HTS kaydı tek başına mahkemede yeterli delil midir?","acceptedAnswer":{"@type":"Answer","text":"HTS kaydı güçlü bir dijital delildir ancak tek başına kesin sonuç vermez; baz istasyonu konumlarındaki belirsizlik payı, aynı bazda birden fazla kişinin bulunabilmesi gibi nedenlerle diğer delillerle (tanık, kamera, fiziksel delil) birlikte değerlendirilmesi gerekir."}},
+{"@type":"Question","name":"HTS analizini kendim Excel ile yapabilir miyim?","acceptedAnswer":{"@type":"Answer","text":"Küçük ölçekli ve basit sorgular için mümkündür, ancak binlerce satırlık dökümde baz istasyonu eşleştirme, ortak nokta tespiti ve zaman çizelgesi çıkarımı elle yapıldığında hem uzun sürer hem hata payı yüksektir. Bu nedenle adli bilişim bilirkişileri özel analiz yazılımları kullanır."}}
+]}</script>
 <style>
 :root{--laci:#152a55;--laci2:#0e1f42;--laci3:#0a1730;--altin:#e4bb52;--altin2:#f2d383;--ak:#eef2fa;--gri:#9fb0d0;--gri2:#c7d2e6;--yesil:#2fbf71;--kart:#152747}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -21,13 +27,20 @@ header{background:var(--laci2);border-bottom:1px solid rgba(255,255,255,.08);pos
 .kirinti{font-size:13px;color:var(--gri);margin-bottom:18px}
 h1{font-size:30px;line-height:1.25;margin:6px 0 10px}
 h2{color:var(--altin2);font-size:21px;margin:28px 0 10px}
+h3{color:var(--gri2);font-size:17px;margin:20px 0 6px}
 p{margin:12px 0;color:var(--gri2)}
 ul,ol{margin:12px 0 12px 22px;color:var(--gri2)}li{margin:6px 0}
 .tarih{color:var(--gri);font-size:13px;margin-bottom:20px}
 .cta{background:linear-gradient(135deg,var(--laci),#204273);border:1px solid rgba(228,187,82,.25);border-radius:16px;padding:26px;margin:34px 0;text-align:center}
-.cta h3{font-size:20px;margin-bottom:8px}
+.cta h3{color:var(--ak);font-size:20px;margin-bottom:8px}
 .btn{display:inline-block;background:var(--altin);color:var(--laci2);font-weight:800;padding:12px 22px;border-radius:10px;margin-top:12px}
 .btn:hover{text-decoration:none;background:var(--altin2)}
+.sss dt{font-weight:700;color:var(--ak);margin-top:14px}
+.sss dd{margin:4px 0 0 0;color:var(--gri2)}
+.uyari{background:var(--kart);border:1px solid rgba(228,187,82,.2);border-radius:12px;padding:16px 18px;margin:18px 0}
+.yazar{display:flex;gap:14px;align-items:flex-start;background:var(--kart);border-radius:12px;padding:18px;margin-top:30px}
+.yazar .av{width:46px;height:46px;border-radius:50%;background:var(--altin);color:var(--laci2);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.yazar b{color:var(--ak)}
 .ilgili{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px}
 .ilgili a{display:block;padding:6px 0}
 footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:var(--gri);font-size:13px;text-align:center;padding:26px 20px}
@@ -43,28 +56,83 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 <div class="wrap">
 <div class="kirinti"><a href="https://htsbilirkisi.com/">Ana Sayfa</a> › <a href="https://htsbilirkisi.com/blog/">Blog</a> › HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?</div>
 <h1>HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?</h1>
-<div class="tarih">Güncelleme: 2026-09-29 · HTS Bilirkişi Analiz Sistemi</div>
+<div class="tarih">Güncelleme: 2026-11-11 · HTS Bilirkişi Analiz Sistemi</div>
 
-<p><b>HTS (Historical Traffic Search)</b>, bir GSM hattının geçmiş iletişim trafiğini gösteren, operatörler tarafından tutulan ayrıntılı kayıtlardır. Adli bilişim ve bilirkişi incelemelerinde en sık kullanılan delil kaynaklarından biridir. Bu yazıda HTS kaydının ne olduğunu, nasıl okunduğunu ve profesyonel olarak nasıl analiz edildiğini anlatıyoruz.</p>
+<p><b>HTS (Historical Traffic Search)</b>, bir GSM hattının geçmiş iletişim trafiğini gösteren, operatörler tarafından tutulan ayrıntılı kayıtlardır. Adli bilişim ve bilirkişi incelemelerinde en sık başvurulan delil kaynaklarından biridir; ceza davalarında konum doğrulama, iletişim tespiti ve zaman çizelgesi oluşturmada kilit rol oynar. Bu yazıda HTS kaydının ne olduğunu, hangi bilgileri içerdiğini, nasıl okunduğunu, hangi çıkarımların yapılabileceğini ve mahkemeye sunulacak bir bilirkişi raporuna nasıl dönüştüğünü ayrıntılı biçimde anlatıyoruz.</p>
+
 <h2>HTS kaydı hangi bilgileri içerir?</h2>
-<p>Turkcell, Vodafone ve Türk Telekom gibi operatörlerden gelen HTS dökümleri genellikle şu alanları içerir: arayan ve aranan numara, tarih ve saat, çağrı süresi, çağrı tipi (arama, SMS, veri), IMEI numarası ve bağlanılan <b>baz istasyonu</b> bilgisi. Baz istasyonu bilgisi, hattın o an yaklaşık olarak nerede bulunduğunu gösterdiği için konum analizinin temelini oluşturur.</p>
+<p>Turkcell, Vodafone ve Türk Telekom gibi operatörlerden mahkeme/savcılık/BTK kanalıyla temin edilen HTS dökümleri, operatöre göre küçük format farklarıyla birlikte genellikle şu alanları içerir:</p>
+<ul>
+<li><b>Arayan ve aranan numara:</b> İletişimin iki tarafı.</li>
+<li><b>Tarih ve saat:</b> Genellikle saniye hassasiyetinde, bazı dökümlerde zaman dilimi (UTC+3) belirtilmeden.</li>
+<li><b>Çağrı süresi:</b> Saniye cinsinden konuşma/bağlantı süresi.</li>
+<li><b>Çağrı tipi:</b> Sesli arama, SMS, MMS veya veri (internet) trafiği.</li>
+<li><b>IMEI numarası:</b> İşlemin yapıldığı cihazın benzersiz donanım kimliği.</li>
+<li><b>Baz istasyonu kodu ve sektör bilgisi:</b> Hattın o an bağlandığı vericinin kimliği; konum analizinin temelidir.</li>
+<li><b>Hücre (cell) ID ve LAC/TAC bilgisi:</b> Baz istasyonunun şebeke içindeki teknik tanımlayıcıları; koordinata çevrilebilmesi için gereklidir.</li>
+</ul>
+<p>Bazı operatör dökümlerinde baz istasyonunun açık adresi veya enlem/boylam bilgisi doğrudan yer almaz; yalnızca bir hücre kodu verilir. Bu durumda kodun gerçek konuma eşleştirilmesi ayrı bir teknik adım gerektirir (bkz. <a href="https://htsbilirkisi.com/blog/baz-istasyonu-adres-bulma">baz istasyonu koordinatından adres bulma</a>).</p>
+
+<h2>HTS ile CDR arasındaki fark nedir?</h2>
+<p>Türkiye'deki adli uygulamada "HTS" terimi yaygın olarak kullanılsa da uluslararası literatürde aynı kavrama genellikle <b>CDR (Call Detail Record)</b> denir. İçerik olarak büyük ölçüde örtüşürler, ancak CDR terimi daha geniş bir veri kümesini (örn. uluslararası roaming, VoLTE detayları) kapsayabilir. Aradaki teknik farkları ve hangi durumda hangi terimin kullanıldığını <a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir">CDR analizi nedir?</a> yazımızda ele aldık.</p>
+
+<h2>HTS kaydı nasıl temin edilir?</h2>
+<p>HTS kayıtları kişisel veri niteliğinde olduğundan doğrudan operatörden talep edilemez. Uygulamada süreç şu şekilde işler: savcılık veya mahkeme, ilgili numaranın HTS dökümünü resmi yazıyla operatörden ya da BTK üzerinden talep eder; operatör, talep edilen tarih aralığına ait kayıtları genellikle Excel (.xlsx/.csv) formatında teslim eder. Bilirkişi, bu ham dosyayı dosyaya giren resmi belge olarak teslim alır ve incelemesini bu veri üzerinden yapar.</p>
+
 <h2>HTS kaydı nasıl okunur?</h2>
-<p>Ham HTS dökümü genelde binlerce, bazen milyonlarca satırlık bir Excel dosyasıdır ve elle okunması pratik değildir. Doğru okumak için kayıtların tarihe göre sıralanması, numaraların tekilleştirilmesi ve baz istasyonu kodlarının adres/konuma eşleştirilmesi gerekir. Bu adımlar manuel yapıldığında günler sürebilir; bir <b>HTS analiz programı</b> ile dakikalara iner.</p>
+<p>Ham HTS dökümü genelde binlerce, uzun süreli incelemelerde bazen yüz binlerce satırlık bir Excel dosyasıdır ve elle okunması pratik değildir. Doğru bir okuma için şu adımlar izlenir:</p>
+<ol>
+<li><b>Normalize etme:</b> Operatöre özgü sütun adlarının ve tarih formatlarının standart bir yapıya çevrilmesi.</li>
+<li><b>Kronolojik sıralama:</b> Kayıtların tarih/saate göre dizilmesi.</li>
+<li><b>Tekilleştirme:</b> Aynı numaraların ve baz istasyonu kodlarının gruplanması.</li>
+<li><b>Baz istasyonu eşleştirme:</b> Hücre kodlarının adres/koordinata bağlanması.</li>
+<li><b>Çapraz karşılaştırma:</b> Birden fazla hattın dökümünün aynı zaman dilimine göre üst üste konması.</li>
+</ol>
+<p>Bu adımlar elle yapıldığında, veri hacmine bağlı olarak günler sürebilir ve insan hatasına açıktır. Bir <b>HTS analiz programı</b> ile aynı işlem dakikalara iner ve sonuçlar tekrarlanabilir/denetlenebilir hale gelir.</p>
+
 <h2>HTS analizinde hangi çıkarımlar yapılır?</h2>
 <ul>
-<li><b>Ortak numara tespiti:</b> Birden fazla hattın ortak görüştüğü numaralar.</li>
-<li><b>Ortak baz istasyonu:</b> İki veya daha fazla hattın aynı anda aynı bölgede bulunması.</li>
-<li><b>IMEI analizi:</b> Aynı cihazda kullanılan farklı hatlar.</li>
-<li><b>Zaman çizelgesi:</b> Olayların kronolojik akışı.</li>
-<li><b>Korelasyon:</b> Numaralar arası ilişki yoğunluğu.</li>
+<li><b>Ortak numara tespiti:</b> Birden fazla hattın ortak görüştüğü numaraların bulunması; taraflar arası dolaylı bağlantıların ortaya çıkarılmasında kullanılır.</li>
+<li><b>Ortak baz istasyonu / buluşma analizi:</b> İki veya daha fazla hattın aynı anda aynı bölgede (aynı baz istasyonu kapsama alanında) bulunup bulunmadığının tespiti. Bu analizin kendine özgü tuzakları için <a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi">aynı baz istasyonu çakışması</a> yazımıza bakın.</li>
+<li><b>IMEI analizi:</b> Aynı cihazda kullanılan farklı hatların veya aynı hatta takılan farklı cihazların tespiti; detaylar için <a href="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi">IMEI ile cihaz değişikliği tespiti</a> yazısına bakılabilir.</li>
+<li><b>Zaman çizelgesi (timeline):</b> Olayların kronolojik akışının görselleştirilmesi; olay anı ile hat hareketlerinin örtüştürülmesi.</li>
+<li><b>Korelasyon analizi:</b> Numaralar arası ilişki yoğunluğunun ve iletişim sıklığının istatistiksel olarak ortaya konması.</li>
+<li><b>Konum hareketi analizi:</b> Bir hattın zaman içinde hangi bölgeler arasında hareket ettiğinin baz istasyonu geçişleriyle izlenmesi.</li>
 </ul>
+
+<h2>HTS delilinin sınırları ve dikkat edilmesi gerekenler</h2>
+<div class="uyari"><p style="margin:0">HTS kaydı güçlü bir delildir ancak kesin bir konum belirteci değildir. Baz istasyonu kapsama alanı, yoğun şehir merkezlerinde birkaç yüz metre ile kırsal alanda birkaç kilometre arasında değişebilir; bu nedenle "hat şu baz istasyonuna bağlandı" ifadesi, kişinin tam olarak nerede bulunduğunu değil, yaklaşık bir bölgeyi gösterir. Aynı baz istasyonuna binlerce kişi aynı anda bağlanabileceğinden, tek başına "aynı baz" bulgusu iki kişinin fiilen bir arada olduğu anlamına gelmez; başka delillerle desteklenmesi gerekir.</p></div>
+
+<h2>Sık yapılan hatalar</h2>
+<ul>
+<li>Tarih/saat dilimi farkını (UTC+3 ile UTC karışıklığı) dikkate almadan kronoloji çıkarmak.</li>
+<li>Baz istasyonu kapsama alanını gerçek konumla birebir eşitlemek.</li>
+<li>Operatörler arası format farklarını normalize etmeden karşılaştırma yapmak.</li>
+<li>Düşük örneklem (çok kısa tarih aralığı) üzerinden genel bir davranış sonucu çıkarmak.</li>
+</ul>
+
 <h2>Rapor aşaması</h2>
-<p>Analiz sonuçları, mahkemeye sunulmak üzere düzenli bir rapora dönüştürülür. Çıktıların Excel, PDF ve Word formatında, delil izine bağlı biçimde üretilmesi bilirkişi raporunun kabul edilebilirliği açısından önemlidir. Rapor sunulmadan önce ham kayıtlarla karşılaştırılmalı ve uzman tarafından doğrulanmalıdır.</p>
+<p>Analiz sonuçları, mahkemeye sunulmak üzere düzenli, delil izi (chain of custody) korunmuş bir rapora dönüştürülür. Çıktıların Excel, PDF ve Word formatında, ham veriyle tutarlı ve doğrulanabilir biçimde üretilmesi bilirkişi raporunun kabul edilebilirliği açısından önemlidir. Rapor, UYAP'a yüklenmeden önce ham kayıtlarla karşılaştırılmalı ve bilirkişi tarafından imzalanmadan önce bulguların metodolojisi açık biçimde belirtilmelidir. UYAP'a uygun rapor formatı hakkında detaylı bilgi için <a href="https://htsbilirkisi.com/blog/uyap-hts-raporu">UYAP'a uygun HTS bilirkişi raporu</a> yazımızı inceleyebilirsiniz.</p>
 <p>HTS kayıtlarını hızlı ve güvenli biçimde çözümlemek için <a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a> tümüyle çevrimdışı çalışır; verileriniz bilgisayarınızdan çıkmaz.</p>
+
+<h2>Sık Sorulan Sorular</h2>
+<dl class="sss">
+<dt>HTS kaydı ne kadar süreyle saklanır?</dt>
+<dd>Operatörler, ilgili mevzuat uyarınca trafik bilgilerini belirli bir süre saklamakla yükümlüdür; kesin süre operatöre ve kayıt türüne göre değişebileceğinden güncel bilgi için mahkeme/BTK üzerinden teyit alınması önerilir.</dd>
+<dt>HTS kaydı ile CDR kaydı aynı şey midir?</dt>
+<dd>Büyük ölçüde örtüşür, ancak CDR daha geniş bir uluslararası terim olarak kullanılabilir. Farkların detayı CDR analizi yazımızdadır.</dd>
+<dt>HTS kaydı tek başına mahkemede yeterli delil midir?</dt>
+<dd>Tek başına kesin sonuç vermez; baz istasyonu konumlarındaki belirsizlik payı nedeniyle diğer delillerle birlikte değerlendirilmelidir.</dd>
+<dt>HTS analizini kendim Excel ile yapabilir miyim?</dt>
+<dd>Küçük ölçekte mümkündür, ancak büyük veri hacminde elle yapılan analiz hem uzun sürer hem hata payı taşır; bu yüzden özel analiz yazılımları tercih edilir.</dd>
+</dl>
 
 <div class="cta"><h3>HTS analizini dakikalar içinde yapın</h3>
 <p>HTS/BTK kayıtlarını içe aktarın, baz istasyonu ve korelasyon analizini otomatik çıkarın, mahkemeye hazır Excel/PDF/Word rapor alın.</p>
 <a class="btn" href="https://htsbilirkisi.com/#indir">7 Gün Ücretsiz Deneyin →</a></div>
+
+<div class="yazar"><div class="av">⚖️</div><div><b>Ozan Baran Yalçın</b> — Adli bilişim bilirkişisi. HTS/iletişim kayıtları, baz istasyonu, konum ve korelasyon analizleri üzerine çalışır; bu yazı dizisi sahadaki bilirkişilik tecrübesine dayanır.</div></div>
+
 <div class="ilgili"><h2>İlgili yazılar</h2><a href="https://htsbilirkisi.com/blog/baz-istasyonu-sorgulama">→ Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?</a><a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir">→ CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları</a><a href="https://htsbilirkisi.com/blog/uyap-hts-raporu">→ UYAP'a Uygun HTS Bilirkişi Raporu Nasıl Hazırlanır?</a><a href="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi">→ IMEI ile Cihaz Değişikliği Nasıl Tespit Edilir?</a></div>
 </div>
 <footer>© 2026 HTS Bilirkişi Analiz Sistemi · <a href="https://htsbilirkisi.com/">htsbilirkisi.com</a> · Adli bilişim / HTS analiz ve raporlama programı</footer></body></html>

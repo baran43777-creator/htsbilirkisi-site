@@ -8,6 +8,11 @@
 <meta property="og:title" content="IMEI ile Cihaz Değişikliği Nasıl Tespit Edilir? (HTS Analizi)"><meta property="og:description" content="HTS kayıtlarında IMEI numarasından cihaz değişikliği nasıl tespit edilir? Aynı hatta farklı telefonlar, aynı cihazda farklı hatlar ve IMEI analizi.">
 <meta property="og:url" content="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "IMEI ile Cihaz Değişikliği Nasıl Tespit Edilir? (HTS Analizi)", "description": "HTS kayıtlarında IMEI numarasından cihaz değişikliği nasıl tespit edilir? Aynı hatta farklı telefonlar, aynı cihazda farklı hatlar ve IMEI analizi.", "inLanguage": "tr-TR", "datePublished": "2026-10-15", "dateModified": "2026-11-11", "mainEntityOfPage": "https://htsbilirkisi.com/blog/imei-cihaz-degisikligi", "author": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi"}, "publisher": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi", "url": "https://htsbilirkisi.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"IMEI numarası HTS dökümünde her zaman yer alır mı?","acceptedAnswer":{"@type":"Answer","text":"Çoğu güncel dökümde yer alır, ancak bazı eski kayıtlarda veya belirli işlem tiplerinde IMEI alanı boş kalabilir; bu kayıtlar ayrıca değerlendirilmelidir."}},
+{"@type":"Question","name":"IMEI değişikliği tek başına suç kanıtı mıdır?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Telefon değiştirmek başlı başına suç değildir; IMEI analizi yalnızca bir cihaz/hat ilişkisini teknik olarak ortaya koyar, hukuki yorumu dosyanın bütünü ve diğer delillerle birlikte mahkeme yapar."}},
+{"@type":"Question","name":"IMEI klonlanabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Teorik olarak nadir durumlarda IMEI değiştirilmiş/klonlanmış cihazlara rastlanabilir. Aşırı tekrar eden veya teknik olarak tutarsız IMEI örüntüleri bu açıdan dikkatle değerlendirilmelidir."}}
+]}</script>
 <style>
 :root{--laci:#152a55;--laci2:#0e1f42;--laci3:#0a1730;--altin:#e4bb52;--altin2:#f2d383;--ak:#eef2fa;--gri:#9fb0d0;--gri2:#c7d2e6;--yesil:#2fbf71;--kart:#152747}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,9 +30,15 @@ p{margin:12px 0;color:var(--gri2)}
 ul,ol{margin:12px 0 12px 22px;color:var(--gri2)}li{margin:6px 0}
 .tarih{color:var(--gri);font-size:13px;margin-bottom:20px}
 .cta{background:linear-gradient(135deg,var(--laci),#204273);border:1px solid rgba(228,187,82,.25);border-radius:16px;padding:26px;margin:34px 0;text-align:center}
-.cta h3{font-size:20px;margin-bottom:8px}
+.cta h3{color:var(--ak);font-size:20px;margin-bottom:8px}
 .btn{display:inline-block;background:var(--altin);color:var(--laci2);font-weight:800;padding:12px 22px;border-radius:10px;margin-top:12px}
 .btn:hover{text-decoration:none;background:var(--altin2)}
+.sss dt{font-weight:700;color:var(--ak);margin-top:14px}
+.sss dd{margin:4px 0 0 0;color:var(--gri2)}
+.uyari{background:var(--kart);border:1px solid rgba(228,187,82,.2);border-radius:12px;padding:16px 18px;margin:18px 0}
+.yazar{display:flex;gap:14px;align-items:flex-start;background:var(--kart);border-radius:12px;padding:18px;margin-top:30px}
+.yazar .av{width:46px;height:46px;border-radius:50%;background:var(--altin);color:var(--laci2);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.yazar b{color:var(--ak)}
 .ilgili{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px}
 .ilgili a{display:block;padding:6px 0}
 footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:var(--gri);font-size:13px;text-align:center;padding:26px 20px}
@@ -43,32 +54,58 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 <div class="wrap">
 <div class="kirinti"><a href="https://htsbilirkisi.com/">Ana Sayfa</a> › <a href="https://htsbilirkisi.com/blog/">Blog</a> › IMEI ile Cihaz Değişikliği Tespiti</div>
 <h1>IMEI ile Cihaz Değişikliği Nasıl Tespit Edilir?</h1>
-<div class="tarih">Güncelleme: 2026-10-15 · HTS Bilirkişi Analiz Sistemi</div>
+<div class="tarih">Güncelleme: 2026-11-11 · HTS Bilirkişi Analiz Sistemi</div>
 
-<p>HTS incelemelerinde çoğu kişi numaralara odaklanır; oysa <b>IMEI numarası</b>, çoğu zaman gözden kaçan ama çok güçlü bir delil kaynağıdır. IMEI analizi sayesinde bir kişinin telefon değiştirip değiştirmediğini, aynı cihazda farklı hatlar kullanıp kullanmadığını ortaya çıkarabilirsiniz. Bu yazıda HTS kayıtlarındaki IMEI bilgisinden <b>cihaz değişikliğinin</b> nasıl tespit edildiğini anlatıyoruz.</p>
+<p>HTS incelemelerinde çoğu kişi yalnızca numaralara odaklanır; oysa <b>IMEI numarası</b>, çoğu zaman gözden kaçan ama çok güçlü bir delil kaynağıdır. IMEI analizi sayesinde bir kişinin telefon değiştirip değiştirmediğini, aynı cihazda farklı hatlar kullanıp kullanmadığını ortaya çıkarabilirsiniz. Bu yazıda HTS kayıtlarındaki IMEI bilgisinden <b>cihaz değişikliğinin</b> nasıl tespit edildiğini, hangi senaryolarda işe yaradığını ve sınırlarını anlatıyoruz.</p>
 
 <h2>IMEI nedir ve HTS'de neden önemlidir?</h2>
-<p><b>IMEI (International Mobile Equipment Identity)</b>, her telefon cihazına özel 15 haneli bir kimlik numarasıdır. SIM kart (hat) değişse bile cihazın IMEI'si sabit kalır. HTS dökümünde her iletişim kaydının yanında, o çağrının yapıldığı cihazın IMEI'si yer alır. Bu da iki önemli çıkarımı mümkün kılar: aynı hatta farklı cihazlar ve aynı cihazda farklı hatlar.</p>
+<p><b>IMEI (International Mobile Equipment Identity)</b>, her telefon cihazına özel 15 haneli bir kimlik numarasıdır. SIM kart (hat) değişse bile cihazın IMEI'si sabit kalır. HTS dökümünde her iletişim kaydının yanında, o çağrının yapıldığı cihazın IMEI'si yer alır. Bu da iki önemli çıkarımı mümkün kılar: aynı hatta kullanılan farklı cihazlar ve aynı cihazda kullanılan farklı hatlar.</p>
 
 <h2>Aynı hatta farklı cihazlar (cihaz değişikliği)</h2>
-<p>Bir numaraya ait kayıtlarda birden fazla farklı IMEI görünüyorsa, kişi o hattı farklı telefonlarda kullanmış demektir. IMEI'nin değiştiği tarih ve saat, <b>cihaz değişikliğinin ne zaman yapıldığını</b> gösterir. Bu, bir olay öncesi/sonrası telefon değiştirme, cihaz satın alma ya da hattı başka bir telefona takma gibi davranışların tespitinde kritik olabilir.</p>
+<p>Bir numaraya ait kayıtlarda birden fazla farklı IMEI görünüyorsa, kişi o hattı farklı telefonlarda kullanmış demektir. IMEI'nin değiştiği tarih ve saat, <b>cihaz değişikliğinin ne zaman yapıldığını</b> gösterir. Bu, bir olay öncesi/sonrası telefon değiştirme, cihaz satın alma ya da hattı başka bir telefona takma gibi davranışların zaman çizelgesiyle ilişkilendirilmesinde kritik olabilir. Örneğin, olay tarihinden hemen önce yapılan bir IMEI değişikliği, incelemede ayrıca dikkat gerektiren bir bulgudur.</p>
 
 <h2>Aynı cihazda farklı hatlar (gizli numaralar)</h2>
-<p>Daha da değerli olan ters durumdur: tek bir IMEI altında birden fazla farklı numara görünüyorsa, kişi aynı telefonda birden fazla hat kullanmış demektir. Bu yöntem, bir kişinin bilinen hattının yanında kullandığı <b>ikinci/gizli hatları</b> ortaya çıkarmak için kullanılır. Şüphelinin resmî hattı dışında, aynı cihaza taktığı başka bir hat bu analizle görünür hale gelir.</p>
+<p>Daha da değerli olan ters durumdur: tek bir IMEI altında birden fazla farklı numara görünüyorsa, kişi aynı telefonda birden fazla hat kullanmış demektir. Bu yöntem, bir kişinin bilinen hattının yanında kullandığı <b>ikinci/gizli hatları</b> ortaya çıkarmak için kullanılır. Şüphelinin resmî hattı dışında, aynı cihaza taktığı başka bir hat bu analizle görünür hale gelir. Bu tür bulgular, özellikle örgütlü suç ve dolandırıcılık dosyalarında sık karşılaşılan, iletişim ağını genişleten önemli ipuçlarıdır.</p>
+
+<h2>IMEI analizi adım adım nasıl yapılır?</h2>
+<ol>
+<li>HTS dökümündeki tüm (numara, IMEI) çiftleri çıkarılır.</li>
+<li>Her numara için kullanılan farklı IMEI'ler listelenir, değişim tarihleri işaretlenir.</li>
+<li>Her IMEI için kullanılan farklı numaralar listelenir.</li>
+<li>Olay tarihine yakın değişimler ayrıca vurgulanır.</li>
+<li>Bulgular, ham kayıttaki satır referanslarıyla birlikte raporlanır.</li>
+</ol>
 
 <h2>IMEI analizinde dikkat edilmesi gerekenler</h2>
 <ul>
-<li><b>IMEI klonlama:</b> Nadiren de olsa sahte/klon IMEI'ler bulunabilir; aşırı tekrar eden anormal IMEI'ler dikkatle değerlendirilmelidir.</li>
-<li><b>Eksik kayıt:</b> Bazı eski kayıtlarda IMEI alanı boş olabilir; bu kayıtlar ayrı değerlendirilir.</li>
+<li><b>IMEI klonlama:</b> Nadiren de olsa sahte/klon IMEI'ler bulunabilir; aşırı tekrar eden veya teknik olarak tutarsız IMEI örüntüleri dikkatle değerlendirilmelidir.</li>
+<li><b>Eksik kayıt:</b> Bazı eski kayıtlarda veya belirli işlem tiplerinde IMEI alanı boş olabilir; bu kayıtlar ayrı değerlendirilir.</li>
+<li><b>Paylaşılan cihazlar:</b> Bir cihazın birden fazla aile üyesi tarafından kullanılması da aynı IMEI altında farklı numaralar görünmesine yol açabilir; bu yüzden bulgu tek başına "gizli hat" anlamına gelmeyebilir.</li>
 <li><b>Delil izi:</b> Her IMEI eşleşmesi, hangi dosyanın hangi satırından geldiğiyle birlikte raporlanmalı ve ham kayıtla doğrulanmalıdır.</li>
 </ul>
+
+<h2>Hukuki yorum ile teknik bulgu arasındaki fark</h2>
+<div class="uyari"><p style="margin:0">IMEI analizi, teknik bir eşleşmeyi ortaya koyar; "bu kişi gizlice ikinci bir hat kullanıyordu" gibi bir sonucu kendiliğinden kanıtlamaz. Alternatif açıklamalar (cihaz paylaşımı, ikinci el satış, aile içi kullanım) her zaman göz önünde bulundurulmalı; bilirkişi raporunda bulgu, bu olası açıklamalarla birlikte temkinli bir dille sunulmalıdır.</p></div>
 
 <h2>Programla otomatik IMEI eşleştirme</h2>
 <p>Binlerce satır arasında IMEI eşleşmelerini elle bulmak neredeyse imkânsızdır. <a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a>, tüm kayıtları tarayarak aynı hatta kullanılan cihazları ve aynı cihazda kullanılan hatları otomatik çıkarır, cihaz değişim tarihlerini listeler ve bulguları delil izine bağlı biçimde raporlar. Program çevrimdışı çalışır; veriler bilgisayarınızdan çıkmaz.</p>
 
+<h2>Sık Sorulan Sorular</h2>
+<dl class="sss">
+<dt>IMEI numarası HTS dökümünde her zaman yer alır mı?</dt>
+<dd>Çoğu güncel dökümde yer alır, ancak bazı eski kayıtlarda veya belirli işlem tiplerinde IMEI alanı boş kalabilir.</dd>
+<dt>IMEI değişikliği tek başına suç kanıtı mıdır?</dt>
+<dd>Hayır. Telefon değiştirmek başlı başına suç değildir; IMEI analizi yalnızca teknik bir ilişkiyi ortaya koyar, hukuki yorumu mahkeme dosyanın bütünüyle yapar.</dd>
+<dt>IMEI klonlanabilir mi?</dt>
+<dd>Teorik olarak nadir durumlarda değiştirilmiş/klonlanmış IMEI'lere rastlanabilir; tutarsız örüntüler dikkatle değerlendirilmelidir.</dd>
+</dl>
+
 <div class="cta"><h3>Cihaz değişikliklerini tek tıkla görün</h3>
 <p>HTS kayıtlarını içe aktarın; IMEI analizini otomatik çıkarın, gizli hatları ve cihaz değişimlerini tespit edin, mahkemeye hazır rapor alın.</p>
 <a class="btn" href="https://htsbilirkisi.com/#indir">7 Gün Ücretsiz Deneyin →</a></div>
+
+<div class="yazar"><div class="av">⚖️</div><div><b>Ozan Baran Yalçın</b> — Adli bilişim bilirkişisi. HTS/iletişim kayıtları, baz istasyonu, konum ve korelasyon analizleri üzerine çalışır; bu yazı dizisi sahadaki bilirkişilik tecrübesine dayanır.</div></div>
+
 <div class="ilgili"><h2>İlgili yazılar</h2><a href="https://htsbilirkisi.com/blog/hts-kaydi-nedir">→ HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?</a><a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi">→ Aynı Baz İstasyonu Çakışması Nedir?</a><a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir">→ CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları</a><a href="https://htsbilirkisi.com/blog/baz-istasyonu-adres-bulma">→ Baz İstasyonu Koordinatından Adres Bulma — Konum Tespiti Rehberi</a></div>
 </div>
 <footer>© 2026 HTS Bilirkişi Analiz Sistemi · <a href="https://htsbilirkisi.com/">htsbilirkisi.com</a> · Adli bilişim / HTS analiz ve raporlama programı</footer></body></html>
