@@ -3,11 +3,11 @@
 <title>HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?</title>
 <meta name="description" content="HTS kaydı nedir, hangi bilgileri içerir ve nasıl analiz edilir? Baz istasyonu, IMEI, korelasyon ve bilirkişi raporu adımlarıyla HTS analizi rehberi.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://htsbilirkisi.com/blog/hts-kaydi-nedir">
+<link rel="canonical" href="https://htsbilirkisi.com/blog/hts-kaydi-nedir.html">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
 <meta property="og:title" content="HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?"><meta property="og:description" content="HTS kaydı nedir, hangi bilgileri içerir ve nasıl analiz edilir? Baz istasyonu, IMEI, korelasyon ve bilirkişi raporu adımlarıyla HTS analizi rehberi.">
-<meta property="og:url" content="https://htsbilirkisi.com/blog/hts-kaydi-nedir">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?", "description": "HTS kaydı nedir, hangi bilgileri içerir ve nasıl analiz edilir? Baz istasyonu, IMEI, korelasyon ve bilirkişi raporu adımlarıyla HTS analizi rehberi.", "inLanguage": "tr-TR", "datePublished": "2026-09-29", "dateModified": "2026-11-11", "mainEntityOfPage": "https://htsbilirkisi.com/blog/hts-kaydi-nedir", "author": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi"}, "publisher": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi", "url": "https://htsbilirkisi.com/"}}</script>
+<meta property="og:url" content="https://htsbilirkisi.com/blog/hts-kaydi-nedir.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "HTS Kaydı Nedir, Nasıl Okunur ve Analiz Edilir?", "description": "HTS kaydı nedir, hangi bilgileri içerir ve nasıl analiz edilir? Baz istasyonu, IMEI, korelasyon ve bilirkişi raporu adımlarıyla HTS analizi rehberi.", "inLanguage": "tr-TR", "datePublished": "2026-09-29", "dateModified": "2026-11-11", "mainEntityOfPage": "https://htsbilirkisi.com/blog/hts-kaydi-nedir.html", "author": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi"}, "publisher": {"@type": "Organization", "name": "HTS Bilirkişi Analiz Sistemi", "url": "https://htsbilirkisi.com/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"HTS kaydı ne kadar süreyle saklanır?","acceptedAnswer":{"@type":"Answer","text":"Operatörler, 5651 sayılı Kanun ve ilgili yönetmelikler uyarınca trafik bilgilerini belirli bir süre (uygulamada genellikle bir-iki yıl civarında, operatöre ve kayıt türüne göre değişebilir) saklamakla yükümlüdür. Kesin süre operatöre ve talep edilen kayıt türüne göre değişebileceğinden, güncel süre için mahkeme/BTK üzerinden teyit alınması önerilir."}},
 {"@type":"Question","name":"HTS kaydı ile CDR kaydı aynı şey midir?","acceptedAnswer":{"@type":"Answer","text":"Hayır. HTS, bir hattın operatör nezdindeki trafik dökümünü ifade ederken CDR (Call Detail Record) daha geniş, uluslararası kullanılan bir çağrı detay kaydı kavramıdır. Türkiye'deki adli süreçlerde genellikle HTS terimi kullanılır; aradaki farkların detayı için CDR analizi yazımıza bakabilirsiniz."}},
@@ -71,10 +71,10 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 <li><b>Baz istasyonu kodu ve sektör bilgisi:</b> Hattın o an bağlandığı vericinin kimliği; konum analizinin temelidir.</li>
 <li><b>Hücre (cell) ID ve LAC/TAC bilgisi:</b> Baz istasyonunun şebeke içindeki teknik tanımlayıcıları; koordinata çevrilebilmesi için gereklidir.</li>
 </ul>
-<p>Bazı operatör dökümlerinde baz istasyonunun açık adresi veya enlem/boylam bilgisi doğrudan yer almaz; yalnızca bir hücre kodu verilir. Bu durumda kodun gerçek konuma eşleştirilmesi ayrı bir teknik adım gerektirir (bkz. <a href="https://htsbilirkisi.com/blog/baz-istasyonu-adres-bulma">baz istasyonu koordinatından adres bulma</a>).</p>
+<p>Bazı operatör dökümlerinde baz istasyonunun açık adresi veya enlem/boylam bilgisi doğrudan yer almaz; yalnızca bir hücre kodu verilir. Bu durumda kodun gerçek konuma eşleştirilmesi ayrı bir teknik adım gerektirir (bkz. <a href="https://htsbilirkisi.com/blog/baz-istasyonu-adres-bulma.html">baz istasyonu koordinatından adres bulma</a>).</p>
 
 <h2>HTS ile CDR arasındaki fark nedir?</h2>
-<p>Türkiye'deki adli uygulamada "HTS" terimi yaygın olarak kullanılsa da uluslararası literatürde aynı kavrama genellikle <b>CDR (Call Detail Record)</b> denir. İçerik olarak büyük ölçüde örtüşürler, ancak CDR terimi daha geniş bir veri kümesini (örn. uluslararası roaming, VoLTE detayları) kapsayabilir. Aradaki teknik farkları ve hangi durumda hangi terimin kullanıldığını <a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir">CDR analizi nedir?</a> yazımızda ele aldık.</p>
+<p>Türkiye'deki adli uygulamada "HTS" terimi yaygın olarak kullanılsa da uluslararası literatürde aynı kavrama genellikle <b>CDR (Call Detail Record)</b> denir. İçerik olarak büyük ölçüde örtüşürler, ancak CDR terimi daha geniş bir veri kümesini (örn. uluslararası roaming, VoLTE detayları) kapsayabilir. Aradaki teknik farkları ve hangi durumda hangi terimin kullanıldığını <a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir.html">CDR analizi nedir?</a> yazımızda ele aldık.</p>
 
 <h2>HTS kaydı nasıl temin edilir?</h2>
 <p>HTS kayıtları kişisel veri niteliğinde olduğundan doğrudan operatörden talep edilemez. Uygulamada süreç şu şekilde işler: savcılık veya mahkeme, ilgili numaranın HTS dökümünü resmi yazıyla operatörden ya da BTK üzerinden talep eder; operatör, talep edilen tarih aralığına ait kayıtları genellikle Excel (.xlsx/.csv) formatında teslim eder. Bilirkişi, bu ham dosyayı dosyaya giren resmi belge olarak teslim alır ve incelemesini bu veri üzerinden yapar.</p>
@@ -93,8 +93,8 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 <h2>HTS analizinde hangi çıkarımlar yapılır?</h2>
 <ul>
 <li><b>Ortak numara tespiti:</b> Birden fazla hattın ortak görüştüğü numaraların bulunması; taraflar arası dolaylı bağlantıların ortaya çıkarılmasında kullanılır.</li>
-<li><b>Ortak baz istasyonu / buluşma analizi:</b> İki veya daha fazla hattın aynı anda aynı bölgede (aynı baz istasyonu kapsama alanında) bulunup bulunmadığının tespiti. Bu analizin kendine özgü tuzakları için <a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi">aynı baz istasyonu çakışması</a> yazımıza bakın.</li>
-<li><b>IMEI analizi:</b> Aynı cihazda kullanılan farklı hatların veya aynı hatta takılan farklı cihazların tespiti; detaylar için <a href="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi">IMEI ile cihaz değişikliği tespiti</a> yazısına bakılabilir.</li>
+<li><b>Ortak baz istasyonu / buluşma analizi:</b> İki veya daha fazla hattın aynı anda aynı bölgede (aynı baz istasyonu kapsama alanında) bulunup bulunmadığının tespiti. Bu analizin kendine özgü tuzakları için <a href="https://htsbilirkisi.com/blog/ayni-baz-cakismasi.html">aynı baz istasyonu çakışması</a> yazımıza bakın.</li>
+<li><b>IMEI analizi:</b> Aynı cihazda kullanılan farklı hatların veya aynı hatta takılan farklı cihazların tespiti; detaylar için <a href="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi.html">IMEI ile cihaz değişikliği tespiti</a> yazısına bakılabilir.</li>
 <li><b>Zaman çizelgesi (timeline):</b> Olayların kronolojik akışının görselleştirilmesi; olay anı ile hat hareketlerinin örtüştürülmesi.</li>
 <li><b>Korelasyon analizi:</b> Numaralar arası ilişki yoğunluğunun ve iletişim sıklığının istatistiksel olarak ortaya konması.</li>
 <li><b>Konum hareketi analizi:</b> Bir hattın zaman içinde hangi bölgeler arasında hareket ettiğinin baz istasyonu geçişleriyle izlenmesi.</li>
@@ -112,7 +112,7 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 </ul>
 
 <h2>Rapor aşaması</h2>
-<p>Analiz sonuçları, mahkemeye sunulmak üzere düzenli, delil izi (chain of custody) korunmuş bir rapora dönüştürülür. Çıktıların Excel, PDF ve Word formatında, ham veriyle tutarlı ve doğrulanabilir biçimde üretilmesi bilirkişi raporunun kabul edilebilirliği açısından önemlidir. Rapor, UYAP'a yüklenmeden önce ham kayıtlarla karşılaştırılmalı ve bilirkişi tarafından imzalanmadan önce bulguların metodolojisi açık biçimde belirtilmelidir. UYAP'a uygun rapor formatı hakkında detaylı bilgi için <a href="https://htsbilirkisi.com/blog/uyap-hts-raporu">UYAP'a uygun HTS bilirkişi raporu</a> yazımızı inceleyebilirsiniz.</p>
+<p>Analiz sonuçları, mahkemeye sunulmak üzere düzenli, delil izi (chain of custody) korunmuş bir rapora dönüştürülür. Çıktıların Excel, PDF ve Word formatında, ham veriyle tutarlı ve doğrulanabilir biçimde üretilmesi bilirkişi raporunun kabul edilebilirliği açısından önemlidir. Rapor, UYAP'a yüklenmeden önce ham kayıtlarla karşılaştırılmalı ve bilirkişi tarafından imzalanmadan önce bulguların metodolojisi açık biçimde belirtilmelidir. UYAP'a uygun rapor formatı hakkında detaylı bilgi için <a href="https://htsbilirkisi.com/blog/uyap-hts-raporu.html">UYAP'a uygun HTS bilirkişi raporu</a> yazımızı inceleyebilirsiniz.</p>
 <p>HTS kayıtlarını hızlı ve güvenli biçimde çözümlemek için <a href="https://htsbilirkisi.com/">HTS Bilirkişi Analiz Sistemi</a> tümüyle çevrimdışı çalışır; verileriniz bilgisayarınızdan çıkmaz.</p>
 
 <h2>Sık Sorulan Sorular</h2>
@@ -133,6 +133,6 @@ footer{background:var(--laci2);border-top:1px solid rgba(255,255,255,.07);color:
 
 <div class="yazar"><div class="av">⚖️</div><div><b>Ozan Baran Yalçın</b> — Adli bilişim bilirkişisi. HTS/iletişim kayıtları, baz istasyonu, konum ve korelasyon analizleri üzerine çalışır; bu yazı dizisi sahadaki bilirkişilik tecrübesine dayanır.</div></div>
 
-<div class="ilgili"><h2>İlgili yazılar</h2><a href="https://htsbilirkisi.com/blog/baz-istasyonu-sorgulama">→ Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?</a><a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir">→ CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları</a><a href="https://htsbilirkisi.com/blog/uyap-hts-raporu">→ UYAP'a Uygun HTS Bilirkişi Raporu Nasıl Hazırlanır?</a><a href="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi">→ IMEI ile Cihaz Değişikliği Nasıl Tespit Edilir?</a></div>
+<div class="ilgili"><h2>İlgili yazılar</h2><a href="https://htsbilirkisi.com/blog/baz-istasyonu-sorgulama.html">→ Baz İstasyonu Sorgulama ve Konum Analizi Nasıl Yapılır?</a><a href="https://htsbilirkisi.com/blog/cdr-analizi-nedir.html">→ CDR Analizi Nedir? Adli Bilişimde İletişim Kayıtları</a><a href="https://htsbilirkisi.com/blog/uyap-hts-raporu.html">→ UYAP'a Uygun HTS Bilirkişi Raporu Nasıl Hazırlanır?</a><a href="https://htsbilirkisi.com/blog/imei-cihaz-degisikligi.html">→ IMEI ile Cihaz Değişikliği Nasıl Tespit Edilir?</a></div>
 </div>
 <footer>© 2026 HTS Bilirkişi Analiz Sistemi · <a href="https://htsbilirkisi.com/">htsbilirkisi.com</a> · Adli bilişim / HTS analiz ve raporlama programı</footer></body></html>
